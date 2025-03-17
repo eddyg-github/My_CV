@@ -92,6 +92,50 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
             </li>
           </ul>
         </div>
+
+        <div className="flex flex-wrap gap-3">
+           <span className='rounded-xl bg-black text-white p-3 text-center dark:bg-white dark:text-black'>HTML</span>
+           <span className='rounded-xl bg-black text-white p-3 text-center dark:bg-white dark:text-black'>CSS</span>
+           <span className='rounded-xl bg-black text-white p-3 text-center dark:bg-white dark:text-black'>JavaScript</span>
+           <span className='rounded-xl bg-black text-white p-3 text-center dark:bg-white dark:text-black'>React</span>
+        </div>
+        <div className="flex flex-wrap gap-3">
+           <span className='rounded-xl bg-black text-white p-3 text-center dark:bg-white dark:text-black'>Next.js</span>
+           <span className='rounded-xl bg-black text-white p-3 text-center dark:bg-white dark:text-black'>PostgreSQL</span>
+           <span className='rounded-xl bg-black text-white p-3 text-center dark:bg-white dark:text-black'>Supabase</span>
+           <span className='rounded-xl bg-black text-white p-3 text-center dark:bg-white dark:text-black'>Docker</span>
+        </div>
+
+        <div className='flex flex-col items-start justify-start gap-5 border-b p-5 dark:border-gray-700'>
+           <h1 className='text-base font-semibold md:text-2xl'>HOBBIES</h1>
+            <div className='flex flex-wrap gap-16 p-3'>
+               <ul className='flex list-disc flex-col gap-3'>
+                 <li>Skiing</li>
+                 <li>Reading Books</li>
+                 <li>Workout</li>
+               </ul>
+               <ul className='flex list-disc flex-col gap-3'>
+                 <li>Boxing</li>
+                 <li>Hiking</li>
+                 <li>Gaming</li>
+               </ul>
+            </div>
+        </div>
+
+        <div className='flex flex-col items-start justify-start gap-5 border-b p-5 dark:border-gray-700'>
+        <h1 className='text-base font-semibold md:text-2xl'>LANGUAGES</h1>
+            <ul className='flex list-disc flex-wrap gap-12 md:text-lg'>
+               <li>English</li>
+               <li>German</li>
+               <li>Spanish</li>
+            </ul>
+        </div>
+
+
+
+        
+
+
       </div>
     </div>
   );
