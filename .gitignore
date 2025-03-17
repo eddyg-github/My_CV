@@ -1,4 +1,4 @@
-# Logs
+# Logs generados por herramientas como npm, yarn, pnpm, y lerna
 logs
 *.log
 npm-debug.log*
@@ -7,18 +7,28 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Directorios de dependencias y distribución que no deberían subirse
 node_modules
 dist
 dist-ssr
 *.local
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+# Archivos del sistema Linux (generalmente archivos ocultos generados por el sistema)
+.directory
+*~  # Archivos temporales generados por editores o el sistema
+.Trash-*  # Archivos de la papelera de reciclaje en Linux
+.unison  # Archivos de sincronización de Unison (herramienta de sincronización de archivos)
+
+# Archivos de configuración del editor (para evitar subir configuraciones del entorno de desarrollo)
+.vscode/*  # Configuración de VSCode
+!.vscode/extensions.json  # Mantén las configuraciones de extensiones de VSCode
+.idea  # Archivos generados por JetBrains (WebStorm, IntelliJ, etc.)
+*.suo  # Archivos de solución de Visual Studio
+*.ntvs*  # Archivos relacionados con Visual Studio
+*.njsproj  # Archivos de proyecto de Visual Studio
+*.sln  # Archivos de solución de Visual Studio
+*.sw?  # Archivos temporales de editores de texto (como Vim, Emacs, etc.)
+
+# Archivos generados por Docker (si aplicas Docker)
+.docker  # Archivos de configuración de Docker
+docker-compose.override.yml  # Configuración adicional de Docker Compose
