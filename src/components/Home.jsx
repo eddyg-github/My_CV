@@ -200,42 +200,145 @@ const Home = () => {
 
 
         
+{/* Línea separadora entre About Me y Employment History */}
+<div className="flex flex-col items-start justify-start gap-5 border-b p-5 dark:border-gray-700">
 
-        <div className="space-y-10">
-  <h1 className="text-2xl font-bold md:text-4xl">References</h1>
+{/* Sección Employment History */}
+<div className="space-y-1">
+  <h1 className='text-2xl font-bold md:text-4xl'>Employment History</h1>
+  <div className="flex flex-col gap-6">
+    {/* Lista de experiencias - una sola columna */}
+    <ul className="flex-1">
+      <li className="relative flex flex-col gap-1 border-l p-6">
+        {/* Viñeta - Ajustada más arriba */}
+        <div className="absolute left-[-10px] top-[70px] h-3 w-3 rounded-full bg-black dark:bg-white"></div>
+        {/* Información de la experiencia */}
+        <div className='px-0'>
+          <span className='text-2xl font-bold'>Honorable Senado de la Nación Argentina</span>
+          <div className='text-lg font-semibold'>IT Operations and Infrastructure | SysAdmin</div>
+        </div>
+        <span className='text-sm text-gray-400'>2014 - 2015</span>
+        <p className='text-sm text-gray-600 dark:text-gray-400'>
+          Spearheaded IT Operations and Infrastructure initiatives, optimizing system performance and ensuring efficient daily operations by implementing IT initiatives as directed.
+        </p>
+        <p className='text-sm text-gray-600 dark:text-gray-400'>
+          Managed servers, networks, and configurations with an emphasis on operational efficiency.
+        </p>
+        <p className='text-sm text-gray-600 dark:text-gray-400'>
+          Implemented proactive security measures to maintain data integrity and compliance with cybersecurity standards.
+        </p>
+      </li>
 
-  <div className="flex flex-wrap gap-10">
-    <div className="text-baseline space-y-1">
-      <h3 className="text-lg font-light">Mobile Developer</h3>
-      <h2 className="text-base font-semibold md:text-2xl">Mr. Davis Jackson</h2>
-      <p className="text-gray-600 dark:text-gray-400">Phone: 123-456-789</p>
-      <p className="text-gray-600 dark:text-gray-400">Email: user@gmail.com</p>
-    </div>
+      <li className="relative flex flex-col gap-1 border-l p-6">
+        {/* Viñeta de IT Support - Ajustada correctamente */}
+        <div className="absolute left-[-10px] top-[35px] h-3 w-3 rounded-full bg-black dark:bg-white"></div>
+        {/* Información de la experiencia */}
+        <div className='px-0'>
+          <span className='text-2xl font-bold'>Ministerio de Agricultura, Ganadería y Pesca</span>
+          <div className='text-lg font-semibold'>IT Operations and Infrastructure | IT Support</div>
+        </div>
+        <span className='text-sm text-gray-400'>2011 - 2014</span>
+        <p className='text-sm text-gray-600 dark:text-gray-400'>
+          Led IT Operations and Infrastructure activities, supporting IT operations to ensure system stability and scalability.
+        </p>
+        <p className='text-sm text-gray-600 dark:text-gray-400'>
+          Provided reliable IT support by addressing user issues and enhancing the IT environment.
+        </p>
+        <p className='text-sm text-gray-600 dark:text-gray-400'>
+          Assisted in the improvement of IT infrastructure and the implementation of security protocols to protect sensitive information.
+        </p>
+      </li>
 
-    <div className="text-baseline space-y-1">
-      <h3 className="text-lg font-light">Mobile Developer</h3>
-      <h2 className="text-base font-semibold md:text-2xl">Mr. Davis Jackson</h2>
-      <p className="text-gray-600 dark:text-gray-400">Phone: 123-456-789</p>
-      <p className="text-gray-600 dark:text-gray-400">Email: user@gmail.com</p>
-    </div>
+      <li className="relative flex flex-col gap-1 border-l p-6">
+        {/* Viñeta de Telefónica S.A. - Ajustada correctamente */}
+        <div className="absolute left-[-10px] top-[35px] h-3 w-3 rounded-full bg-black dark:bg-white"></div>
+        {/* Información de la experiencia */}
+        <div className='px-0'>
+          <span className='text-2xl font-bold'>Telefónica S.A. (now Movistar)</span>
+          <div className='text-lg font-semibold'>IT Support & Operations</div>
+        </div>
+        <span className='text-sm text-gray-400'>2008 - 2011</span>
+        <p className='text-sm text-gray-600 dark:text-gray-400'>
+          Delivered effective IT support and help desk services to ensure seamless day-to-day operations.
+        </p>
+        <p className='text-sm text-gray-600 dark:text-gray-400'>
+          Played a vital role in troubleshooting and resolving user-reported issues promptly.
+        </p>
+        <p className='text-sm text-gray-600 dark:text-gray-400'>
+          Collaborated with cross-functional teams to improve IT processes and user satisfaction.
+        </p>
+      </li>
 
-    <div className="text-baseline space-y-1">
-      <h3 className="text-lg font-light">Mobile Developer</h3>
-      <h2 className="text-base font-semibold md:text-2xl">Mr. Davis Jackson</h2>
-      <p className="text-gray-600 dark:text-gray-400">Phone: 123-456-789</p>
-      <p className="text-gray-600 dark:text-gray-400">Email: user@gmail.com</p>
-    </div>
+      <li className="relative flex flex-col gap-1 border-l p-6">
+        {/* Viñeta de Stelimp S.R.L. - Ajustada correctamente */}
+        <div className="absolute left-[-10px] top-[35px] h-3 w-3 rounded-full bg-black dark:bg-white"></div>
+        {/* Información de la experiencia */}
+        <div className='px-0'>
+          <span className='text-2xl font-bold'>Stelimp S.R.L.</span>
+          <div className='text-lg font-semibold'>IT Support | Help Desk</div>
+        </div>
+        <span className='text-sm text-gray-400'>2004 - 2008</span>
+        <p className='text-sm text-gray-600 dark:text-gray-400'>
+          Provided dedicated IT support, addressing user concerns, and maintaining a productive work environment.
+        </p>
+        <p className='text-sm text-gray-600 dark:text-gray-400'>
+          Played a key role in troubleshooting hardware and software issues, ensuring minimal downtime.
+        </p>
+        <p className='text-sm text-gray-600 dark:text-gray-400'>
+          Contributed significantly to the implementation of effective IT policies and procedures, enhancing overall operational efficiency.
+        </p>
+        <p className='text-sm text-gray-600 dark:text-gray-400'>
+          Collaborated with the IT team to optimize system performance and resolve technical challenges promptly.
+        </p>
+        <p className='text-sm text-gray-600 dark:text-gray-400'>
+          Extended IT support services to operations in Uruguay, ensuring seamless IT operations across multiple locations.
+        </p>
+      </li>
 
-    <div className="text-baseline space-y-1">
-      <h3 className="text-lg font-light">Mobile Developer</h3>
-      <h2 className="text-base font-semibold md:text-2xl">Mr. Davis Jackson</h2>
-      <p className="text-gray-600 dark:text-gray-400">Phone: 123-456-789</p>
-      <p className="text-gray-600 dark:text-gray-400">Email: user@gmail.com</p>
-    </div>
+      <li className="relative flex flex-col gap-1 border-l p-6">
+        {/* Viñeta de Undersoft S.A. - Ajustada correctamente */}
+        <div className="absolute left-[-10px] top-[35px] h-3 w-3 rounded-full bg-black dark:bg-white"></div>
+        {/* Información de la experiencia */}
+        <div className='px-0'>
+          <span className='text-2xl font-bold'>Undersoft S.A.</span>
+          <div className='text-lg font-semibold'>IT Support | Help Desk</div>
+        </div>
+        <span className='text-sm text-gray-400'>2002 - 2004</span>
+        <p className='text-sm text-gray-600 dark:text-gray-400'>
+          Provided responsive IT support to address user concerns, and maintain a productive work environment.
+        </p>
+        <p className='text-sm text-gray-600 dark:text-gray-400'>
+          Played a key role in troubleshooting hardware and software issues, ensuring minimal downtime.
+        </p>
+        <p className='text-sm text-gray-600 dark:text-gray-400'>
+          Contributed to the implementation of IT policies and procedures.
+        </p>
+      </li>
 
-
+      <li className="relative flex flex-col gap-1 border-l p-6">
+        {/* Viñeta de Win Informática S.R.L. - Ajustada correctamente */}
+        <div className="absolute left-[-10px] top-[35px] h-3 w-3 rounded-full bg-black dark:bg-white"></div>
+        {/* Información de la experiencia */}
+        <div className='px-0'>
+          <span className='text-2xl font-bold'>Win Informática S.R.L.</span>
+          <div className='text-lg font-semibold'>IT Support | Help Desk</div>
+        </div>
+        <span className='text-sm text-gray-400'>2000 - 2002</span>
+        <p className='text-sm text-gray-600 dark:text-gray-400'>
+          Offered comprehensive IT support, addressing user queries, and technical issues effectively.
+        </p>
+        <p className='text-sm text-gray-600 dark:text-gray-400'>
+          Contributed to the development and maintenance of IT infrastructure.
+        </p>
+        <p className='text-sm text-gray-600 dark:text-gray-400'>
+          Assisted in the deployment and maintenance of software and hardware systems.
+        </p>
+      </li>
+    </ul>
   </div>
 </div>
+</div>
+
 
 
 

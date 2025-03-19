@@ -236,44 +236,93 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
 </div>
 
 
+{/* Complementary Certifications Section */}
+<div className='p-5 border-b dark:border-gray-700'>
+  <h1 className='text-lg font-bold md:text-2xl mb-4 text-gray-900 dark:text-gray-100'>
+    Complementary Certifications
+  </h1>
 
+  {/* Generative AI Section */}
+  <div className='mb-4'>
+    <h2 className='text-base font-semibold mb-2 text-gray-800 dark:text-gray-200'>
+      Generative AI & Advanced Tools
+    </h2>
+    <div className='rounded-lg p-4 shadow-sm space-y-2'>
 
-        {/* Hobbies Section: Hobbies */}
-        <div className='flex flex-col items-start justify-start gap-5 border-b p-5 dark:border-gray-700'>
-          <h1 className='text-base font-semibold md:text-2xl'>HOBBIES</h1>
-          <div className='flex flex-wrap gap-16 p-3'>
-            <ul className='flex list-disc flex-col gap-3'>
-              <li>Skiing</li>
-              <li>Reading Books</li>
-              <li>Workout</li>
-            </ul>
-            <ul className='flex list-disc flex-col gap-3'>
-              <li>Boxing</li>
-              <li>Hiking</li>
-              <li>Gaming</li>
-            </ul>
-          </div>
+      {[
+        ['Amazon Web Services (AWS)', 'Introduction to Generative AI'],
+        ['Microsoft', 'Azure AI Fundamentals (AI-900T00-A)'],
+        ['Microsoft', 'Develop GenAI Solutions with Azure OpenAI (AI-050)'],
+        ['Microsoft', 'Copilot Use Cases (MS-4004-A)'],
+        ['Microsoft', 'Prompting for Copilot (MS-4005)'],
+        ['Microsoft', 'What the Hack: Azure OpenAI'],
+        ['Google', 'AI & Productivity Certificate'],
+        ['Massachusetts Institute of Technology', 'Generative AI Certificate'],
+        ['TIDWIT', 'AWS GenAI Bootcamp'],
+        ['TIDWIT', 'GenAI Fundamentals'],
+        ['TIDWIT', 'GenAI Tools'],
+        ['TIDWIT', 'GenAI Deep Dive'],
+      ].map(([issuer, cert], idx) => (
+        <div key={idx} className='flex flex-col'>
+          <span className='text-black dark:text-white font-medium'>{issuer}</span>
+          <span className='text-gray-700 dark:text-gray-400 text-sm'>{cert}</span> {/* Slightly smaller font */}
         </div>
+      ))}
+
+    </div>
+  </div>
+
+  {/* Additional Certifications Section */}
+  <div>
+    <h2 className='text-base font-semibold mb-2 text-gray-800 dark:text-gray-200'>
+      Additional Certifications
+    </h2>
+    <div className='rounded-lg p-4 shadow-sm space-y-2'>
+
+      {[
+        ['Axigma', 'SAP Functional Consultant (SD)'],
+        ['Centro Netec México', 'AWS Data Analytics Fundamentals'],
+        ['EducacionIT', 'Project Management Essentials'],
+        ['EducacionIT', 'Scrum Fundamentals Certified (SFC)'],
+        ['ZAKIDATA', 'Career Accelerator with Power BI'],
+        ['Massachusetts Institute of Technology', 'Internet Of Things (IoT) Certificate'],
+        ['Centro Netec México', 'Introduction to Blockchain Technology'],
+      ].map(([issuer, cert], idx) => (
+        <div key={idx} className='flex flex-col'>
+          <span className='text-black dark:text-white font-medium'>{issuer}</span>
+          <span className='text-gray-700 dark:text-gray-400 text-sm'>{cert}</span> {/* Slightly smaller font */}
+        </div>
+      ))}
+
+    </div>
+  </div>
+</div>
+
+
+
+
+        
+
 
 {/* Languages Section: Idiomas */}
-<div className="flex flex-col items-start justify-start gap-5 border-b p-5 dark:border-gray-700">
-  <h1 className="text-base font-semibold md:text-2xl">LANGUAGES</h1>
+<div className="flex flex-col items-start justify-start gap-5 border-b p-5 dark:border-gray-700 rounded-lg shadow-sm">
+  <h1 className="text-base font-semibold md:text-2xl text-gray-900 dark:text-gray-100">LANGUAGES</h1>
   <div className="grid grid-cols-3 gap-12 md:text-lg">
     {/* Columna 1 */}
     <ul className="relative border-l border-gray-300 pl-6 flex flex-col gap-5">
       <li className="relative flex flex-col gap-1">
         <div className="relative flex items-center">
-          <div className="absolute left-[-2rem] top-1/2 transform -translate-y-1/2 h-3 w-3 rounded-full bg-black dark:bg-white"></div>
-          <span className="text-base font-semibold">Spanish</span>
+          <div className="absolute left-[-2rem] top-1/2 transform -translate-y-1/2 h-3 w-3 rounded-full bg-black dark:bg-blue-400"></div>
+          <span className="text-base font-semibold text-black dark:text-blue-400">Spanish</span>
         </div>
-        <div className="text-gray-500 dark:text-gray-400 text-sm">Native</div>
+        <div className="text-black dark:text-gray-300 text-sm">Native</div>
       </li>
       <li className="relative flex flex-col gap-1">
         <div className="relative flex items-center">
-          <div className="absolute left-[-2rem] top-1/2 transform -translate-y-1/2 h-3 w-3 rounded-full bg-black dark:bg-white"></div>
-          <span className="text-base font-semibold">French</span>
+          <div className="absolute left-[-2rem] top-1/2 transform -translate-y-1/2 h-3 w-3 rounded-full bg-black dark:bg-blue-400"></div>
+          <span className="text-base font-semibold text-black dark:text-blue-400">French</span>
         </div>
-        <div className="text-gray-500 dark:text-gray-400 text-sm">B1</div>
+        <div className="text-black dark:text-gray-300 text-sm">B1</div>
       </li>
     </ul>
 
@@ -281,17 +330,17 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
     <ul className="relative border-l border-gray-300 pl-6 flex flex-col gap-5">
       <li className="relative flex flex-col gap-1">
         <div className="relative flex items-center">
-          <div className="absolute left-[-2rem] top-1/2 transform -translate-y-1/2 h-3 w-3 rounded-full bg-black dark:bg-white"></div>
-          <span className="text-base font-semibold">English</span>
+          <div className="absolute left-[-2rem] top-1/2 transform -translate-y-1/2 h-3 w-3 rounded-full bg-black dark:bg-blue-400"></div>
+          <span className="text-base font-semibold text-black dark:text-blue-400">English</span>
         </div>
-        <div className="text-gray-500 dark:text-gray-400 text-sm">C2</div>
+        <div className="text-black dark:text-gray-300 text-sm">C2</div>
       </li>
       <li className="relative flex flex-col gap-1">
         <div className="relative flex items-center">
-          <div className="absolute left-[-2rem] top-1/2 transform -translate-y-1/2 h-3 w-3 rounded-full bg-black dark:bg-white"></div>
-          <span className="text-base font-semibold">Portuguese</span>
+          <div className="absolute left-[-2rem] top-1/2 transform -translate-y-1/2 h-3 w-3 rounded-full bg-black dark:bg-blue-400"></div>
+          <span className="text-base font-semibold text-black dark:text-blue-400">Portuguese</span>
         </div>
-        <div className="text-gray-500 dark:text-gray-400 text-sm">A1</div>
+        <div className="text-black dark:text-gray-300 text-sm">A1</div>
       </li>
     </ul>
 
@@ -299,21 +348,24 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
     <ul className="relative border-l border-gray-300 pl-6 flex flex-col gap-5">
       <li className="relative flex flex-col gap-1">
         <div className="relative flex items-center">
-          <div className="absolute left-[-2rem] top-1/2 transform -translate-y-1/2 h-3 w-3 rounded-full bg-black dark:bg-white"></div>
-          <span className="text-base font-semibold">Mandarin</span>
+          <div className="absolute left-[-2rem] top-1/2 transform -translate-y-1/2 h-3 w-3 rounded-full bg-black dark:bg-blue-400"></div>
+          <span className="text-base font-semibold text-black dark:text-blue-400">Mandarin</span>
         </div>
-        <div className="text-gray-500 dark:text-gray-400 text-sm">B1</div>
+        <div className="text-black dark:text-gray-300 text-sm">B1</div>
       </li>
       <li className="relative flex flex-col gap-1">
         <div className="relative flex items-center">
-          <div className="absolute left-[-2rem] top-1/2 transform -translate-y-1/2 h-3 w-3 rounded-full bg-black dark:bg-white"></div>
-          <span className="text-base font-semibold">Russian</span>
+          <div className="absolute left-[-2rem] top-1/2 transform -translate-y-1/2 h-3 w-3 rounded-full bg-black dark:bg-blue-400"></div>
+          <span className="text-base font-semibold text-black dark:text-blue-400">Russian</span>
         </div>
-        <div className="text-gray-500 dark:text-gray-400 text-sm">A1</div>
+        <div className="text-black dark:text-gray-300 text-sm">A1</div>
       </li>
     </ul>
   </div>
 </div>
+
+
+
 
 
 
