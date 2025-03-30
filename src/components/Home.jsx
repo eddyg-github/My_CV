@@ -14,166 +14,265 @@ const CertificateImage = ({ imageSrc, altText, title }) => {
     return () => observer.disconnect();
   }, []);
 
-  const handleImageClick = () => {
-    setIsExpanded(true);
-  };
-
-  const handleClose = (event) => {
-    event.stopPropagation();
-    setIsExpanded(false);
-  };
-
   return (
     <>
       {isExpanded && (
-        <div 
-          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center"
-          onClick={handleClose}
-        >
-          <button 
-            className="absolute top-4 right-4 text-white text-2xl font-bold"
-            onClick={handleClose}
-          >
-            ×
-          </button>
-          <img 
-            src={imageSrc.full}
-            alt="Certificado expandido"
-            className="max-w-[80vw] max-h-[80vh] object-contain"
-            style={{ borderRadius: '0' }}  // Asegurando que no haya bordes redondeados
-          />
+        <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center" onClick={() => setIsExpanded(false)}>
+          <button className="absolute top-4 right-4 text-white text-2xl font-bold" onClick={() => setIsExpanded(false)}>×</button>
+          <img src={imageSrc.full} alt="Certificado expandido" className="max-w-[80vw] max-h-[80vh] object-contain" />
         </div>
       )}
 
-      <div className="relative group cursor-pointer w-full aspect-w-3 aspect-h-2" onClick={handleImageClick}>
+      <div className="relative group cursor-pointer w-full aspect-w-3 aspect-h-2" onClick={() => setIsExpanded(true)}>
         <img
           src={isDarkMode ? imageSrc.bnInverse : imageSrc.bn}
           alt={altText}
-          className="w-full h-full object-contain shadow-md transition-all duration-300"
-          style={{ borderRadius: '0' }}  // Asegurando que no haya bordes redondeados
+          className={`w-full h-full object-contain shadow-md ${isDarkMode ? 'shadow-gray-600' : 'shadow-gray-300'} transition-all duration-300`}
         />
-        
         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <img
-            src={imageSrc.color}
-            alt="Certificado Color"
-            className="w-full h-full object-contain shadow-md"
-            style={{ borderRadius: '0' }}  // Asegurando que no haya bordes redondeados
-          />
+          <img src={imageSrc.color} alt="Certificado Color" className="w-full h-full object-contain shadow-md" />
         </div>
       </div>
-      <div className="text-center font-bold mt-2 text-[7px] md:text-[8px] lg:text-[9px] px-2">
-        {title}
-      </div>
+      <div className="text-center font-bold mt-2 text-[7px] md:text-[8px] lg:text-[9px] px-2">{title}</div>
     </>
   );
 };
 
 const Home = () => {
-  const cert1 = {
-    full: "/certificates/devops-cert01-full.jpg",
-    bn: "/certificates/devops-cert01-sml-bn.jpg",
-    bnInverse: "/certificates/devops-cert01-sml-bn-inverse.jpg",
-    color: "/certificates/devops-cert01-sml-color.jpg"
-  };
+  const certificates = [
+    { path: "devops-cert01", title: "IT College - AWS Cloud Practitioner Course" },
+    { path: "devops-cert02", title: "Amazon Web Services (AWS) - AWS Educate Introduction to Cloud 101" },
+    { path: "devops-cert03", title: "Centro Netec México - AWS Discovery Day Are You Well-Architected" },
+    { path: "devops-cert04", title: "Microsoft - Azure Fundamentals (AZ-900T00-A)" },
+    { path: "devops-cert05", title: "Microsoft - Designing Microsoft Azure Infrastructure Solutions (AZ-305T00-A)" },
+    { path: "devops-cert06", title: "The Linux Foundation - Introduction to Kubernetes (LFS158)" },
+    { path: "devops-cert07", title: "EducacionIT - Certified in Streamlining Deployments Using Git and Coolify" },
+    { path: "devops-cert08", title: "Microsoft - Querying Data with Microsoft Transact-SQL (DP-080)" },
+    { path: "devops-cert09", title: "Akuity - Introduction to Continuous Delivery and GitOps using Argo CD" },
+    { path: "devops-cert10", title: "The Linux Foundation - Getting Started with OpenTofu (LFEL1009)" },
+    { path: "devops-cert11", title: "The Linux Foundation - Introduction to Istio (LFS144)" }
+  ];
 
-  const cert2 = {
-    full: "/certificates/devops-cert02-full.jpg",
-    bn: "/certificates/devops-cert02-sml-bn.jpg",
-    bnInverse: "/certificates/devops-cert02-sml-bn-inverse.jpg",
-    color: "/certificates/devops-cert02-sml-color.jpg"
-  };
-
-  const cert3 = {
-    full: "/certificates/devops-cert03-full.jpg",
-    bn: "/certificates/devops-cert03-sml-bn.jpg",
-    bnInverse: "/certificates/devops-cert03-sml-bn-inverse.jpg",
-    color: "/certificates/devops-cert03-sml-color.jpg"
-  };
-
-  const cert4 = {
-    full: "/certificates/devops-cert04-full.jpg",
-    bn: "/certificates/devops-cert04-sml-bn.jpg",
-    bnInverse: "/certificates/devops-cert04-sml-bn-inverse.jpg",
-    color: "/certificates/devops-cert04-sml-color.jpg"
-  };
-
-  const cert5 = {
-    full: "/certificates/devops-cert05-full.jpg",
-    bn: "/certificates/devops-cert05-sml-bn.jpg",
-    bnInverse: "/certificates/devops-cert05-sml-bn-inverse.jpg",
-    color: "/certificates/devops-cert05-sml-color.jpg"
-  };
-
-  const cert6 = {
-    full: "/certificates/devops-cert06-full.jpg",
-    bn: "/certificates/devops-cert06-sml-bn.jpg",
-    bnInverse: "/certificates/devops-cert06-sml-bn-inverse.jpg",
-    color: "/certificates/devops-cert06-sml-color.jpg"
-  };
+  // Agregamos las certificaciones de Ciberseguridad con las rutas actualizadas
+  const cybersecurityCertificates = [
+    { path: "soc-cert01", title: "ISC2 CC – Certified in Cybersecurity" },
+    { path: "soc-cert02", title: "Microsoft Cybersecurity Architect (SC-100)" },
+    { path: "soc-cert03", title: "Cisco Networking Academy - Digital Awareness Certificate" },
+    { path: "soc-cert04", title: "Cisco Networking Academy - Introduction to Cybersecurity Certificate" },
+    { path: "soc-cert05", title: "Fortinet - Certified Associate in Cybersecurity" },
+    { path: "soc-cert06", title: "Palo Alto Networks - Cybersecurity Fundamentals" },
+    { path: "soc-cert07", title: "Palo Alto Networks - Cloud Security Fundamentals" },
+    { path: "soc-cert08", title: "Certiprof - Cybersecurity Awareness Professional Certification - CAPC" },
+    { path: "soc-cert09", title: "Cybrary - Ethical Hacking Reconnaissance Techniques" },
+    { path: "soc-cert10", title: "OPSWAT Academy - Certificate in Introduction to Critical Infrastructure Protection" },
+    { path: "soc-cert11", title: "Academia de Ciberseguridad - Certified Cybersecurity Technician (CCT)" },
+    { path: "soc-cert12", title: "IBM - Cybersecurity Fundamentals" }
+  ];
 
   return (
-    <div className='min-h-screen flex-[3] transition-all duration-500 dark:bg-black dark:text-white'>
-      <main className='flex max-w-[1000px] flex-col gap-10 p-5 md:mx-10 md:py-14'>
+    <div className="min-h-screen flex-[3] transition-all duration-500 dark:bg-black dark:text-white">
+      <main className="flex max-w-[1000px] flex-col gap-10 p-5 md:mx-10 md:py-14">
         {/* Sección About */}
-        <div className="flex flex-col items-start justify-start gap-5 border-b p-5 dark:border-gray-700">
-          <div className="space-y-5">
-            <h1 className='text-2xl font-bold md:text-4xl'>About Me</h1>
-            <p className='text-sm text-gray-600 dark:text-gray-400 md:text-base'>
-              I am an IT professional with over two decades of experience, transitioning into the world of DevOps. My career began as a Systems Administrator, and I've spent years refining my skills in IT infrastructure, automation, and systems optimization. While I’m still growing in the DevOps field, I am passionate about continuous learning, best practices, and enhancing IT efficiency through collaboration and automation.
-            </p>
-            <p className='text-sm text-gray-600 dark:text-gray-400 md:text-base'>
-              My focus is on leveraging tools like AWS, automation scripts, and best practices to improve infrastructure management and streamline development processes. I am committed to contributing my knowledge and skills to help teams build reliable, scalable, and efficient systems. 
-            </p>
-          </div>
+        <div className="flex flex-col gap-5 border-b p-5 dark:border-gray-700">
+          <h1 className="text-2xl font-bold md:text-4xl">About Me</h1>
+          {[
+            "I am an IT professional with over two decades of experience, transitioning into the world of DevOps. My career began as a Systems Administrator, and I've spent years refining my skills in IT infrastructure, automation, and systems optimization. While I’m still growing in the DevOps field, I am passionate about continuous learning, best practices, and enhancing IT efficiency through collaboration and automation.",
+            "My focus is on leveraging tools like AWS, automation scripts, and best practices to improve infrastructure management and streamline development processes. I am committed to contributing my knowledge and skills to help teams build reliable, scalable, and efficient systems."
+          ].map((text, idx) => (
+            <p key={idx} className="text-sm text-gray-600 dark:text-gray-400 md:text-base">{text}</p>
+          ))}
         </div>
 
-        {/* Sección de certificaciones */}
+        {/* Línea separadora entre About Me y Experience */}
         <div className="flex flex-col items-start justify-start gap-5 border-b p-5 dark:border-gray-700">
-          <div className="max-w-3xl space-y-8">
-            <h1 className='text-2xl font-bold md:text-4xl'>Key Certifications</h1>
-
-            {/* Cloud Computing, DevOps & Infrastructure Certifications */}
-            <h2 className="text-xl font-semibold md:text-2xl">Cloud Computing, DevOps & Infrastructure Certifications</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 p-5 mx-auto">
-              <div className="flex flex-col items-center">
-                <CertificateImage
-                  imageSrc={cert1}
-                  altText="Certificado B/N DevOps"
-                  title="IT College - AWS Cloud Practitioner Course"
-                />
-              </div>
-              <div className="flex flex-col items-center">
-                <CertificateImage
-                  imageSrc={cert2}
-                  altText="Certificado B/N AWS Educate"
-                  title="Amazon Web Services (AWS) - AWS Educate Introduction to Cloud 101"
-                />
-              </div>
-              <div className="flex flex-col items-center">
-                <CertificateImage
-                  imageSrc={cert3}
-                  altText="Certificado B/N AWS Discovery Day"
-                  title="Centro Netec México - AWS Discovery Day Are You Well-Architected"
-                />
-              </div>
-              <div className="flex flex-col items-center">
-                <CertificateImage
-                  imageSrc={cert4}
-                  altText="Certificado B/N Azure Fundamentals"
-                  title="Microsoft - Azure Fundamentals (AZ-900T00-A)"
-                />
-              </div>
-              <div className="flex flex-col items-center">
-                <CertificateImage
-                  imageSrc={cert5}
-                  altText="Certificado B/N Azure Design"
-                  title="Microsoft - Designing Microsoft Azure Infrastructure Solutions (AZ-305T00-A)"
-                />
-              </div>
+          {/* Sección Experience */}
+          <div className="space-y-1">
+            <h1 className='text-2xl font-bold md:text-4xl'>Experience</h1>
+            <div className="flex flex-col gap-6">
+              {/* Lista de experiencias - una sola columna */}
+              <ul className="flex-1">
+                <li className="relative flex flex-col gap-1 border-l p-6">
+                  {/* Viñeta */}
+                  <div className="absolute left-[-8px] top-[70px] h-3 w-3 rounded-full bg-black dark:bg-white"></div>
+                  {/* Información del primer rol */}
+                  <div className='px-0'>
+                    <span className='text-2xl font-bold'>Farmacias TKL</span>
+                    <div className="text-lg font-semibold">DevOps Engineer</div>
+                  </div>
+                  <span className='text-sm text-gray-400'>Mar 2024 - Present</span>
+                  {[
+                    'Set up and maintained microservices testing environments on AWS EKS and Kubernetes, ensuring scalability and high availability.',
+                    'Managed cloud secrets and enforced software version control policies to maintain security and facilitate timely updates.',
+                    'Collaborated on infrastructure optimization in AWS for microservices testing, improving performance and reducing operational costs.'
+                  ].map((desc, i) => (
+                    <p key={i} className='text-sm text-gray-600 dark:text-gray-400'>{desc}</p>
+                  ))}
+                </li>
+                <li className="relative flex flex-col gap-1 border-l p-6">
+                  {/* Viñeta */}
+                  <div className="absolute left-[-8px] top-[35px] h-3 w-3 rounded-full bg-black dark:bg-white"></div>
+                  {/* Información del segundo rol */}
+                  <div className='px-0'>
+                    <div className="text-lg font-semibold">IT Systems Infrastructure Analyst</div>
+                  </div>
+                  <span className='text-sm text-gray-400'>Sep 2015 - Mar 2024</span>
+                  {[
+                    'Administered and maintained physical and virtual servers across Unix, Linux, and Windows environments to ensure high availability.',
+                    'Configured and managed Active Directory for user authentication and security, optimizing access control.',
+                    'Enhanced network security by managing firewalls, routers, and switches, significantly reducing security risks.',
+                    'Conducted performance assessments and implemented improvements to increase system reliability and efficiency.',
+                    'Implemented automated backup solutions to ensure data security and rapid recovery in case of failure.'
+                  ].map((desc, i) => (
+                    <p key={i} className='text-sm text-gray-600 dark:text-gray-400'>{desc}</p>
+                  ))}
+                </li>
+              </ul>
             </div>
           </div>
         </div>
+
+        {/* Certifications Section */}
+        <div className="flex flex-col items-start justify-start gap-5 border-b p-5 dark:border-gray-700">
+          <h1 className="text-2xl font-bold md:text-4xl">Key Certifications</h1>
+          <h2 className="text-xl font-semibold md:text-2xl">Cloud Computing, DevOps & Infrastructure Certifications</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 p-5 mx-auto">
+            {certificates.map(({ path, title }) => (
+              <div key={path} className="flex flex-col items-center">
+                <CertificateImage
+                  imageSrc={{
+                    full: `/certificates/${path}-full.webp`,
+                    bn: `/certificates/${path}-sml-bn.webp`,
+                    bnInverse: `/certificates/${path}-sml-bn-inverse.webp`,
+                    color: `/certificates/${path}-sml-color.webp`
+                  }}
+                  altText={`Certificado ${title}`}
+                  title={title}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* New Cybersecurity Certifications Section */}
+        <div className="flex flex-col items-start justify-start gap-5 border-b p-5 dark:border-gray-700">
+          <h1 className="text-2xl font-bold md:text-4xl">Cybersecurity Certifications</h1>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 p-5 mx-auto">
+            {cybersecurityCertificates.map(({ path, title }) => (
+              <div key={path} className="flex flex-col items-center">
+                <CertificateImage
+                  imageSrc={{
+                    full: `/certificates/${path}-full.webp`,
+                    bn: `/certificates/${path}-sml-bn.webp`,
+                    bnInverse: `/certificates/${path}-sml-bn-inverse.webp`,
+                    color: `/certificates/${path}-sml-color.webp`
+                  }}
+                  altText={`Certificado ${title}`}
+                  title={title}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Línea separadora entre About Me y Employment History */}
+        <div className="flex flex-col items-start justify-start gap-5 border-b p-5 dark:border-gray-700">
+          {/* Sección Employment History */}
+          <div className="space-y-1">
+            <h1 className="text-2xl font-bold md:text-4xl">Employment History</h1>
+            <div className="flex flex-col gap-6">
+              {/* Lista de experiencias - una sola columna */}
+              <ul className="flex-1">
+                {[
+                  {
+                    company: 'Honorable Senado de la Nación Argentina',
+                    role: 'IT Operations and Infrastructure | SysAdmin',
+                    period: '2014 - 2015',
+                    description: [
+                      'Spearheaded IT Operations and Infrastructure initiatives, optimizing system performance and ensuring efficient daily operations by implementing IT initiatives as directed.',
+                      'Managed servers, networks, and configurations with an emphasis on operational efficiency.',
+                      'Implemented proactive security measures to maintain data integrity and compliance with cybersecurity standards.'
+                    ]
+                  },
+                  {
+                    company: 'Ministerio de Agricultura, Ganadería y Pesca',
+                    role: 'IT Operations and Infrastructure | IT Support',
+                    period: '2011 - 2014',
+                    description: [
+                      'Led IT Operations and Infrastructure activities, supporting IT operations to ensure system stability and scalability.',
+                      'Provided reliable IT support by addressing user issues and enhancing the IT environment.',
+                      'Assisted in the improvement of IT infrastructure and the implementation of security protocols to protect sensitive information.'
+                    ]
+                  },
+                  {
+                    company: 'Telefónica S.A. (now Movistar)',
+                    role: 'IT Support & Operations',
+                    period: '2008 - 2011',
+                    description: [
+                      'Delivered effective IT support and help desk services to ensure seamless day-to-day operations.',
+                      'Played a vital role in troubleshooting and resolving user-reported issues promptly.',
+                      'Collaborated with cross-functional teams to improve IT processes and user satisfaction.'
+                    ]
+                  },
+                  {
+                    company: 'Stelimp S.R.L.',
+                    role: 'IT Support | Help Desk',
+                    period: '2004 - 2008',
+                    description: [
+                      'Provided dedicated IT support, addressing user concerns, and maintaining a productive work environment.',
+                      'Played a key role in troubleshooting hardware and software issues, ensuring minimal downtime.',
+                      'Contributed significantly to the implementation of effective IT policies and procedures, enhancing overall operational efficiency.',
+                      'Collaborated with the IT team to optimize system performance and resolve technical challenges promptly.',
+                      'Extended IT support services to operations in Uruguay, ensuring seamless IT operations across multiple locations.'
+                    ]
+                  },
+                  {
+                    company: 'Undersoft S.A.',
+                    role: 'IT Support | Help Desk',
+                    period: '2002 - 2004',
+                    description: [
+                      'Provided responsive IT support to address user concerns, and maintain a productive work environment.',
+                      'Played a key role in troubleshooting hardware and software issues, ensuring minimal downtime.',
+                      'Contributed to the implementation of IT policies and procedures.'
+                    ]
+                  },
+                  {
+                    company: 'Win Informática S.R.L.',
+                    role: 'IT Support | Help Desk',
+                    period: '2000 - 2002',
+                    description: [
+                      'Offered comprehensive IT support, addressing user queries, and technical issues effectively.',
+                      'Contributed to the development and maintenance of IT infrastructure.',
+                      'Assisted in the deployment and maintenance of software and hardware systems.'
+                    ]
+                  }
+                ].map((experience, index) => (
+                  <li key={index} className="relative flex flex-col gap-1 border-l p-6">
+                    {/* Viñeta con top estático */}
+                    <div className="absolute left-[-6px] top-[65px] h-3 w-3 rounded-full bg-black dark:bg-white"></div>
+                    {/* Información de la experiencia */}
+                    <div className="px-0">
+                      <span className="text-2xl font-bold">{experience.company}</span>
+                      <div className="text-lg font-semibold">{experience.role}</div>
+                    </div>
+                    <span className="text-sm text-gray-400">{experience.period}</span>
+                    {experience.description.map((desc, i) => (
+                      <p key={i} className="text-sm text-gray-600 dark:text-gray-400">{desc}</p>
+                    ))}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer */}
+
+        <footer className="text-center text-gray-600 dark:text-gray-400">
+          <p>&copy; 2025 All rights reserved.</p>
+        </footer>
+        <div className="border-t p-5 dark:border-gray-700">
+        </div>
+
       </main>
     </div>
   );
