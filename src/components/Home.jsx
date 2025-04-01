@@ -23,7 +23,7 @@ const CertificateImage = ({ imageSrc, altText, title }) => {
         </div>
       )}
 
-      <div className="relative group cursor-pointer w-full aspect-w-3 aspect-h-2" onClick={() => setIsExpanded(true)}>
+      <div className="relative group cursor-pointer w-full aspect-w-3 aspect-h-2 transition-transform transform hover:scale-110 hover:shadow-2xl dark:hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50" onClick={() => setIsExpanded(true)}>
         <img
           src={isDarkMode ? imageSrc.bnInverse : imageSrc.bn}
           alt={altText}
@@ -42,7 +42,7 @@ const Home = () => {
   const certificates = [
     { path: "devops-cert01", title: "IT College - AWS Cloud Practitioner Course" },
     { path: "devops-cert02", title: "Amazon Web Services (AWS) - AWS Educate Introduction to Cloud 101" },
-    { path: "devops-cert03", title: "Centro Netec México - AWS Discovery Day Are You Well-Architected" },
+    { path: "devops-cert03", title: "Netec - AWS Discovery Day: Are You WellArchitected?" },
     { path: "devops-cert04", title: "Microsoft - Azure Fundamentals (AZ-900T00-A)" },
     { path: "devops-cert05", title: "Microsoft - Designing Microsoft Azure Infrastructure Solutions (AZ-305T00-A)" },
     { path: "devops-cert06", title: "The Linux Foundation - Introduction to Kubernetes (LFS158)" },
@@ -50,7 +50,9 @@ const Home = () => {
     { path: "devops-cert08", title: "Microsoft - Querying Data with Microsoft Transact-SQL (DP-080)" },
     { path: "devops-cert09", title: "Akuity - Introduction to Continuous Delivery and GitOps using Argo CD" },
     { path: "devops-cert10", title: "The Linux Foundation - Getting Started with OpenTofu (LFEL1009)" },
-    { path: "devops-cert11", title: "The Linux Foundation - Introduction to Istio (LFS144)" }
+    { path: "devops-cert11", title: "The Linux Foundation - Introduction to Istio (LFS144)" },
+    { path: "devops-cert12", title: "Amazon Web Services (AWS) - Amazon EKS Pre-assessment Certificate" },
+    { path: "devops-cert13", title: "Código Facilito - GitHub Actions Certificate" },
   ];
 
   // Agregamos las certificaciones de Ciberseguridad con las rutas actualizadas
@@ -66,7 +68,10 @@ const Home = () => {
     { path: "soc-cert09", title: "Cybrary - Ethical Hacking Reconnaissance Techniques" },
     { path: "soc-cert10", title: "OPSWAT Academy - Certificate in Introduction to Critical Infrastructure Protection" },
     { path: "soc-cert11", title: "Academia de Ciberseguridad - Certified Cybersecurity Technician (CCT)" },
-    { path: "soc-cert12", title: "IBM - Cybersecurity Fundamentals" }
+    { path: "soc-cert12", title: "IBM - Cybersecurity Fundamentals" },
+    { path: "soc-cert13", title: "CódigoFacilito - Static Testing Course Certificate" },
+    { path: "soc-cert14", title: "Ekoparty - Attacking Amazon Web Services Workshop Certificate" },
+    { path: "soc-cert15", title: "Seguridad Cero Academy - Cybersecurity Fundamentals Certificate" },
   ];
 
   return (

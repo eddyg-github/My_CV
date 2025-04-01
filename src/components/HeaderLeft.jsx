@@ -32,7 +32,9 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
             <h1 className="text-4xl font-light">
               <span className="font-semibold">Eduardo Ghidoli</span>
             </h1>
-            <h3 className="text-xl font-light">DevOps Engineer</h3>
+            <h3 className="text-xl font-light">
+              <span className="font-bold">SRE</span> | <span className="font-bold">DevOps</span> Engineer
+            </h3>
           </div>
           <button className="absolute right-10 top-10" onClick={toggleDarkMode}>
             {darkMode ? <BiSun className="text-2xl" /> : <BiMoon className="text-2xl" />}
@@ -52,12 +54,40 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
           <h1 className="text-base font-semibold md:text-2xl">CONTACT</h1>
           <ul className="space-y-3">
             {[
-              { icon: <BiCurrentLocation className="text-xl" />, text: "Buenos Aires, Argentina" },
+              { icon: <BiCurrentLocation className="text-xl" />, text: "Buenos Aires, Argentina", flag: "🇦🇷" },
               { icon: <BiEnvelope className="text-xl" />, text: <a href="mailto:eduardoghidoli@gmail.com">email</a> }
             ].map((contact, idx) => (
-              <li key={idx} className="flex items-center gap-2">
-                {contact.icon}
-                <span>{contact.text}</span>
+              <li key={idx} className="w-auto">
+                {idx === 0 ? (
+                  // Efecto aplicado al icono de ubicación con bandera y estrellas
+                  <div className="group inline-flex items-center gap-2 p-1 rounded-md transition-transform duration-200 transform hover:scale-105 cursor-pointer">
+                    <div className="border-2 p-1 rounded-full" style={{ borderColor: "#D1D5DB" }}>
+                      {contact.icon}
+                    </div>
+                    <span className="transition-colors duration-200 group-hover:text-black dark:group-hover:text-white group-hover:font-bold">
+                      {contact.text}
+                    </span>
+                    {/* Bandera de Argentina y estrellas aparecen solo al hacer hover */}
+                    <span className="relative transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                      {/* Bandera */}
+                      <span className="text-xl">{contact.flag}</span>
+                      {/* Estrellas doradas más juntas y más altas */}
+                      <span className="absolute top-[-8px] left-[-5px] text-yellow-500 text-xs group-hover:opacity-100 opacity-0 transition-opacity duration-300">★</span>
+                      <span className="absolute top-[-12px] left-1/2 transform -translate-x-1/2 text-yellow-500 text-xs group-hover:opacity-100 opacity-0 transition-opacity duration-300">★</span>
+                      <span className="absolute top-[-8px] right-[-5px] text-yellow-500 text-xs group-hover:opacity-100 opacity-0 transition-opacity duration-300">★</span>
+                    </span>
+                  </div>
+                ) : (
+                  // Efecto aplicado al botón de email
+                  <div className="group inline-flex items-center gap-2 p-1 rounded-md transition-transform duration-200 transform hover:scale-105 cursor-pointer">
+                    <div className="border-2 p-1 rounded-full" style={{ borderColor: "#D1D5DB" }}>
+                      {contact.icon}
+                    </div>
+                    <span className="transition-colors duration-200 group-hover:text-black dark:group-hover:text-white group-hover:font-bold">
+                      {contact.text}
+                    </span>
+                  </div>
+                )}
               </li>
             ))}
           </ul>
@@ -72,9 +102,22 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
               { icon: <BiLogoGithub className="text-xl" />, name: "GitHub", url: "https://github.com/eddyg-github" },
               { icon: <FaGitlab className="text-xl" />, name: "GitLab", url: "https://gitlab.com/eduardoghidoli" }
             ].map((social, idx) => (
-              <li key={idx} className="flex items-center gap-2">
-                {social.icon}
-                <a href={social.url} target="_blank" rel="noopener noreferrer">{social.name}</a>
+              <li key={idx} className="w-auto">
+                <div className="group inline-flex items-center gap-2 p-1 rounded-md transition-transform duration-200 transform hover:scale-105 cursor-pointer">
+                  <span className="transition-colors duration-200 group-hover:text-black dark:group-hover:text-white">
+                    <div className="border-2 p-1 rounded-full" style={{ borderColor: "#D1D5DB" }}>
+                      {social.icon}
+                    </div>
+                  </span>
+                  <a
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition-colors duration-200 group-hover:text-black dark:group-hover:text-white group-hover:font-bold"
+                  >
+                    {social.name}
+                  </a>
+                </div>
               </li>
             ))}
           </ul>
@@ -99,102 +142,35 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
           </ul>
         </div>
 
-{/* Technical Skills */}
-<div className="flex flex-col gap-6 border-b p-8 w-full dark:border-gray-800">
-  <h1 className="text-2xl font-semibold text-gray-800 dark:text-gray-100">Technical Skills</h1>
-  <div className="flex flex-wrap gap-0">
-    {[
-      ["JavaScript", "AWS", "Unix", "Node.js", "Kubernetes"],
-      ["Git", "Bash", "Jenkins", "Prometheus", "GCP", "Helm"],
-      ["Vagrant", "VirtualBox", "CSS", "Java", "Datadog"],
-      ["OpenStack", "Lens", "Python", "Linux", "Terraform"],
-      ["HTML", "GitLab", "Azure", "ArgoCD", "VMware"],
-      ["MySQL", "Grafana", "Dynatrace", "Docker", "WinSrv"],
-      ["Nginx", "ELK Stack", "GitHub", "Pulumi", "MSSQL"],
-      ["Hyper-V", "MongoDB", "React.js", "Tailwind"]
-    ].map((line, idx) => (
-      line.map((skill, skillIdx) => (
-        <span
-          key={`${idx}-${skillIdx}`}
-          className="border-2 text-gray-800 dark:text-gray-100 p-2 rounded-lg text-xs font-bold transition-transform transform hover:scale-110 hover:shadow-2xl dark:hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50"
-          style={{
-            borderColor: "#D1D5DB", // Borde gris claro
-            marginRight: "4px", // Reducido el margen entre elementos
-            marginBottom: "4px", // Reducido el margen inferior
-            transition: "transform 0.3s ease, box-shadow 0.3s ease", // Transición suave
-          }}
-        >
-          {skill}
-        </span>
-      ))
-    ))}
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-        {/* Complementary Certifications Section */}
-        <div className="flex flex-col gap-8 border-b p-8 w-full dark:border-gray-800">
-          <h1 className='text-lg font-bold md:text-2xl mb-4 text-gray-900 dark:text-gray-100'>
-            Complementary Certifications
-          </h1>
-
-          {/* Generative AI Section */}
-          <div className='mb-4'>
-            <h2 className='text-base font-semibold mb-2 text-gray-800 dark:text-gray-200'>
-              Generative AI & Advanced Tools
-            </h2>
-            <div className='rounded-lg p-4 shadow-sm space-y-2'>
-              {[
-                ['Amazon Web Services (AWS)', 'Introduction to Generative AI'],
-                ['Microsoft', 'Azure AI Fundamentals (AI-900T00-A)'],
-                ['Microsoft', 'Develop GenAI Solutions with Azure OpenAI (AI-050)'],
-                ['Microsoft', 'Copilot Use Cases (MS-4004-A)'],
-                ['Microsoft', 'Prompting for Copilot (MS-4005)'],
-                ['Microsoft', 'What the Hack: Azure OpenAI'],
-                ['Google', 'AI & Productivity Certificate'],
-                ['Massachusetts Institute of Technology', 'Generative AI Certificate'],
-                ['TIDWIT', 'AWS GenAI Bootcamp'],
-                ['TIDWIT', 'GenAI Fundamentals'],
-                ['TIDWIT', 'GenAI Tools'],
-                ['TIDWIT', 'GenAI Deep Dive'],
-              ].map(([issuer, cert], idx) => (
-                <div key={idx} className='flex flex-col'>
-                  <span className='text-black dark:text-white font-medium'>{issuer}</span>
-                  <span className='text-gray-700 dark:text-gray-400 text-sm'>{cert}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Additional Certifications Section */}
-          <div>
-            <h1 className='text-lg font-bold md:text-2xl mb-4 text-gray-900 dark:text-gray-100'>
-              Additional Certifications
-            </h1>
-            <div className='rounded-lg p-4 shadow-sm space-y-2'>
-              {[
-                ['Axigma', 'SAP Functional Consultant (SD)'],
-                ['Centro Netec México', 'AWS Data Analytics Fundamentals'],
-                ['EducacionIT', 'Project Management Essentials'],
-                ['EducacionIT', 'Scrum Fundamentals Certified (SFC)'],
-                ['ZAKIDATA', 'Career Accelerator with Power BI'],
-                ['Massachusetts Institute of Technology', 'Internet Of Things (IoT) Certificate'],
-                ['Centro Netec México', 'Introduction to Blockchain Technology'],
-              ].map(([issuer, cert], idx) => (
-                <div key={idx} className='flex flex-col'>
-                  <span className='text-black dark:text-white font-medium'>{issuer}</span>
-                  <span className='text-gray-700 dark:text-gray-400 text-sm'>{cert}</span>
-                </div>
-              ))}
-            </div>
+        {/* Technical Skills */}
+        <div className="flex flex-col gap-6 border-b p-8 w-full dark:border-gray-800">
+          <h1 className="text-2xl font-semibold text-gray-800 dark:text-gray-100">Technical Skills</h1>
+          <div className="flex flex-wrap gap-0">
+            {[
+              ["JavaScript", "AWS", "Unix", "Node.js", "Kubernetes"],
+              ["Git", "Bash", "Jenkins", "Prometheus", "GCP", "Helm"],
+              ["Vagrant", "VirtualBox", "CSS", "Java", "Datadog"],
+              ["OpenStack", "Lens", "Python", "Linux", "Terraform"],
+              ["HTML", "GitLab", "Azure", "ArgoCD", "VMware"],
+              ["MySQL", "Grafana", "Dynatrace", "Docker", "WinSrv"],
+              ["Nginx", "ELK Stack", "GitHub", "Pulumi", "MSSQL"],
+              ["Hyper-V", "MongoDB", "React.js", "Tailwind"]
+            ].map((line, idx) => (
+              line.map((skill, skillIdx) => (
+                <span
+                  key={`${idx}-${skillIdx}`}
+                  className="border-2 text-gray-800 dark:text-gray-100 p-2 rounded-lg text-xs font-bold transition-transform transform hover:scale-110 hover:shadow-2xl dark:hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50 hover:font-extrabold"
+                  style={{
+                    borderColor: "#D1D5DB",
+                    marginRight: "4px",
+                    marginBottom: "4px",
+                    transition: "transform 0.3s ease, box-shadow 0.3s ease, font-weight 0.3s ease",
+                  }}
+                >
+                  {skill}
+                </span>
+              ))
+            ))}
           </div>
         </div>
       </div>
