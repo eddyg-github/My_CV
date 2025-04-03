@@ -1,9 +1,85 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BiMoon, BiSun, BiCurrentLocation, BiEnvelope, BiLink } from 'react-icons/bi';
 import { BiLogoGithub, BiLogoTwitter, BiLogoLinkedin } from 'react-icons/bi';
 import { FaGitlab } from 'react-icons/fa';
 
+const CertificateImage = ({ imageSrc, altText, title }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(
+    document.documentElement.classList.contains('dark')
+  );
+
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      setIsDarkMode(document.documentElement.classList.contains('dark'));
+    });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <>
+      {isExpanded && (
+        <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center" onClick={() => setIsExpanded(false)}>
+          <button className="absolute top-4 right-4 text-white text-2xl font-bold" onClick={() => setIsExpanded(false)}>×</button>
+          <img src={imageSrc.full} alt="Certificado expandido" className="max-w-[80vw] max-h-[80vh] object-contain" />
+        </div>
+      )}
+      <div className="relative group cursor-pointer w-full aspect-w-3 aspect-h-2 transition-transform transform hover:scale-110 hover:shadow-2xl dark:hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50" onClick={() => setIsExpanded(true)}>
+        <img
+          src={isDarkMode ? imageSrc.bnInverse : imageSrc.bn}
+          alt={altText}
+          className={`w-full h-full object-contain shadow-md ${isDarkMode ? 'shadow-gray-600' : 'shadow-gray-300'} transition-all duration-300`}
+        />
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <img src={imageSrc.color} alt="Certificado Color" className="w-full h-full object-contain shadow-md" />
+        </div>
+      </div>
+      <div className="text-center font-bold mt-2 text-[7px] md:text-[8px] lg:text-[9px] px-2">{title}</div>
+    </>
+  );
+};
+
 const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
+
+  const languageFlags = {
+    Spanish: "https://flagcdn.com/w40/es.png", // España
+    English: "https://flagcdn.com/w40/gb.png", // Reino Unido
+    French: "https://flagcdn.com/w40/fr.png", // Francia
+    Mandarin: "https://flagcdn.com/w40/cn.png", // China
+    Portuguese: "https://flagcdn.com/w40/pt.png", // Portugal
+    Russian: "https://flagcdn.com/w40/ru.png", // Rusia
+  };
+
+  const certificates = [
+    { path: "ia-cert01", title: "Amazon Web Services (AWS) - Introduction to Generative AI" },
+    { path: "ia-cert02", title: "Microsoft - Azure AI Fundamentals (AI-900T00-A)" },
+    { path: "ia-cert03", title: "Microsoft - Develop GenAI Solutions with Azure OpenAI (AI-050T00)" },
+    { path: "ia-cert04", title: "Microsoft - Empower your workforce with Copilot for Microsoft 365 Use Cases (MS-4004-A)" },
+    { path: "ia-cert05", title: "Microsoft - Craft effective prompts for Microsoft Copilot for Microsoft 365 (MS-4005)" },
+    { path: "ia-cert06", title: "CódigoFacilito - What The Hack - OpenAI Powered by Microsoft" },
+    { path: "ia-cert07", title: "Massachusetts Institute of Technology (MIT) - Generative AI Certificate - Santander" },
+    { path: "ia-cert08", title: "Google - Artificial Intelligence and Productivity - Santander" },
+    { path: "ia-cert09", title: "TIDWIT - AWS GenAI Bootcamp" },
+    { path: "ia-cert10", title: "TIDWIT - AWS GenAI Fundamentals" },
+    { path: "ia-cert11", title: "TIDWIT - AWS GenAI Tools" },
+    { path: "ia-cert12", title: "TIDWIT - Deep Dive into AWS GenAI Services" },
+    { path: "ia-cert13", title: "Donweb - Building an AI Chatbot with Ollama" },
+  ];
+
+  const additionalCertifications = [
+    { path: "ac-cert01", title: "Axigma - SAP SD Functional Consultant (Sales and Distribution)" },
+    { path: "ac-cert02", title: "Centro Netec México - Data Analytics Fundamentals on AWS" },
+    { path: "ac-cert03", title: "Educacion IT - Project Management Essentials" },
+    { path: "ac-cert04", title: "Educación IT - Agile Team Leadership Certificate" },
+    { path: "ac-cert05", title: "Educación IT - Scrum Fundamentals Certificate" },
+    { path: "ac-cert06", title: "Zakidata - Power BI Career Accelerator Certificate" },
+    { path: "ac-cert07", title: "Massachusetts Institute of Technology (MIT) - Internet of Things - Santander" },
+    { path: "ac-cert08", title: "Netec - Introduction to Blockchain Technology Certificate" },
+    { path: "ac-cert09", title: "Ingelearn - Certificate in Ladder Programming for Industrial Automation" },
+    { path: "ac-cert10", title: "Skillfront - CASF: Certified Associate in Scrum Fundamentals" },
+  ];
+
   const [imageSrc, setImageSrc] = useState('/public/image01-bn.webp'); // Imagen inicial
 
   // Función para cambiar la imagen cuando el mouse entra
@@ -19,6 +95,7 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
   return (
     <div className="min-h-screen flex-1 relative p-10 transition-all duration-500 dark:bg-black dark:text-white sm:border-r dark:border-gray-700">
       <div className="flex flex-col items-start gap-5">
+
         {/* Imagen y nombre centrados */}
         <div className="flex flex-col items-center gap-5 border-b p-5 w-full dark:border-gray-700 relative">
           <img
@@ -173,41 +250,93 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
             ))}
           </div>
         </div>
-      </div>
 
-      {/* Languages Section: Idiomas */}
-      <div className="flex flex-col gap-8 border-b p-8 w-full dark:border-gray-800">
-        <h1 className="text-base font-semibold md:text-2xl text-gray-900 dark:text-white">LANGUAGES</h1>
-        <div className="grid grid-cols-3 gap-12 md:text-lg">
-          {[
-            // Columna 1
-            [
-              { name: 'Spanish', level: 'Native' },
-              { name: 'English', level: 'C2' },
-            ],
-            // Columna 2
-            [
-              { name: 'French', level: 'B1' },
-              { name: 'Mandarin', level: 'B1' },
-            ],
-            // Columna 3
-            [
-              { name: 'Portuguese', level: 'A1' },
-              { name: 'Russian', level: 'A1' },
-            ],
-          ].map((column, colIndex) => (
-            <ul key={colIndex} className="relative border-l border-gray-300 pl-6 flex flex-col gap-5">
-              {column.map((language, index) => (
-                <li key={index} className="relative flex flex-col gap-1">
-                  <div className="relative flex items-center">
-                    <div className="absolute left-[-2rem] top-1/2 transform -translate-y-1/2 h-3 w-3 rounded-full bg-black dark:bg-white"></div>
-                    <span className="text-base font-semibold text-black dark:text-white">{language.name}</span>
-                  </div>
-                  <div className="text-black dark:text-gray-300 text-sm">{language.level}</div>
-                </li>
-              ))}
-            </ul>
-          ))}
+        {/* Languages Section: Idiomas */}
+        <div className="flex flex-col gap-8 border-b p-8 w-full dark:border-gray-800">
+          <h1 className="text-base font-semibold md:text-2xl text-gray-900 dark:text-white">LANGUAGES</h1>
+          <div className="grid grid-cols-3 gap-12 md:text-lg">
+            {[
+              [
+                { name: 'Spanish', level: 'Native' },
+                { name: 'English', level: 'C2' },
+              ],
+              [
+                { name: 'French', level: 'B1' },
+                { name: 'Mandarin', level: 'B1' },
+              ],
+              [
+                { name: 'Portuguese', level: 'A1' },
+                { name: 'Russian', level: 'A1' },
+              ],
+            ].map((column, colIndex) => (
+              <ul key={colIndex} className="relative border-l border-gray-300 pl-6 flex flex-col gap-5">
+                {column.map((language, index) => (
+                  <li key={index} className="relative flex flex-col gap-1 group">
+                    <div className="relative flex items-center gap-2">
+                      <div className="absolute left-[-2rem] top-1/2 transform -translate-y-1/2 h-3 w-3 rounded-full bg-black dark:bg-white"></div>
+                      <img
+                        src={languageFlags[language.name]}
+                        alt={`${language.name} flag`}
+                        className="w-6 h-4 rounded-sm filter grayscale transition-all duration-300 group-hover:grayscale-0 group-hover:w-6.5 group-hover:h-4.5"
+                      />
+                      <span className="text-base font-semibold text-black dark:text-white transition-all duration-300 group-hover:font-bold group-hover:text-[1.05rem]">
+                        {language.name}
+                      </span>
+                    </div>
+                    <div className="text-black dark:text-gray-300 text-sm transition-all duration-300 group-hover:font-bold group-hover:text-[1rem]">
+                      {language.level}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            ))}
+          </div>
+        </div>
+
+        {/* Complementary Certifications Section */}
+        <div className="flex flex-col gap-1 border-b p-8 w-full dark:border-gray-800">
+          <h1 className="text-base font-bold md:text-xl mb-2 text-gray-900 dark:text-gray-100">COMPLEMENTARY CERTIFICATIONS</h1>
+          <div className='mb-1'>
+            <h2 className='text-base font-semibold mb-2 text-gray-800 dark:text-gray-200'>Generative AI & Advanced Tools</h2>
+          </div>
+          <div className="grid grid-cols-12 sm:grid-cols-3 md:grid-cols-4 gap-3 p-1">
+            {certificates.map(({ path, title }) => (
+              <div key={path} className="flex flex-col items-center">
+                <CertificateImage
+                  imageSrc={{
+                    full: `/certificates/${path}-full.webp`,
+                    bn: `/certificates/${path}-sml-bn.webp`,
+                    bnInverse: `/certificates/${path}-sml-bn-inverse.webp`,
+                    color: `/certificates/${path}-sml-color.webp`,
+                  }}
+                  altText={`Certificado ${title}`}
+                  title={title}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Complementary Certifications Section */}
+        <div className="flex flex-col gap-1 border-b p-8 w-full dark:border-gray-800">
+          <h1 className="text-base font-bold md:text-xl mb-2 text-gray-900 dark:text-gray-100">ADDITIONAL CERTIFICATIONS</h1>
+
+          <div className="grid grid-cols-12 sm:grid-cols-3 md:grid-cols-4 gap-3 p-1">
+            {additionalCertifications.map(({ path, title }) => (
+              <div key={path} className="flex flex-col items-center">
+                <CertificateImage
+                  imageSrc={{
+                    full: `/certificates/${path}-full.webp`,
+                    bn: `/certificates/${path}-sml-bn.webp`,
+                    bnInverse: `/certificates/${path}-sml-bn-inverse.webp`,
+                    color: `/certificates/${path}-sml-color.webp`,
+                  }}
+                  altText={`Certificado ${title}`}
+                  title={title}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

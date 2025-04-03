@@ -189,7 +189,7 @@ const Home = () => {
               <ul className="flex-1">
                 {[
                   {
-                    company: 'Honorable Senado de la Nación Argentina',
+                    company: 'Argentine National Senate',
                     role: 'IT Operations and Infrastructure | SysAdmin',
                     period: '2014 - 2015',
                     description: [
@@ -199,7 +199,7 @@ const Home = () => {
                     ]
                   },
                   {
-                    company: 'Ministerio de Agricultura, Ganadería y Pesca',
+                    company: 'Argentine Ministry of Agriculture, Livestock, and Fisheries',
                     role: 'IT Operations and Infrastructure | IT Support',
                     period: '2011 - 2014',
                     description: [
@@ -209,7 +209,7 @@ const Home = () => {
                     ]
                   },
                   {
-                    company: 'Telefónica S.A. (now Movistar)',
+                    company: 'Telefónica (now Telecom)',
                     role: 'IT Support & Operations',
                     period: '2008 - 2011',
                     description: [
@@ -219,7 +219,7 @@ const Home = () => {
                     ]
                   },
                   {
-                    company: 'Stelimp S.R.L.',
+                    company: 'Stelimp',
                     role: 'IT Support | Help Desk',
                     period: '2004 - 2008',
                     description: [
@@ -231,7 +231,7 @@ const Home = () => {
                     ]
                   },
                   {
-                    company: 'Undersoft S.A.',
+                    company: 'Undersoft',
                     role: 'IT Support | Help Desk',
                     period: '2002 - 2004',
                     description: [
@@ -241,7 +241,7 @@ const Home = () => {
                     ]
                   },
                   {
-                    company: 'Win Informática S.R.L.',
+                    company: 'Win Informática',
                     role: 'IT Support | Help Desk',
                     period: '2000 - 2002',
                     description: [
@@ -271,7 +271,6 @@ const Home = () => {
         </div>
 
         {/* Footer */}
-
         <footer className="text-center text-gray-600 dark:text-gray-400">
           <p>&copy; 2025 All rights reserved.</p>
         </footer>
