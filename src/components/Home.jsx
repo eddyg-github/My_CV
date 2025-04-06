@@ -248,7 +248,7 @@ const Home = () => {
                     description: [
                       'Provided dedicated IT support, addressing user concerns, and maintaining a productive work environment.',
                       'Played a key role in troubleshooting hardware and software issues, ensuring minimal downtime.',
-                      'Contributed significantly to the implementation of effective IT policies and procedures, enhancing overall operational efficiency.',
+                      'Contributed significativamente to the implementation of effective IT policies and procedures, enhancing overall operational efficiency.',
                       'Collaborated with the IT team to optimize system performance and resolve technical challenges promptly.',
                       'Extended IT support services to operations in Uruguay, ensuring seamless IT operations across multiple locations.'
                     ]
@@ -286,7 +286,7 @@ const Home = () => {
                           href={experience.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`text-2xl font-bold ${experience.company === 'Stelimp' || experience.company === 'Undersoft' || experience.company === 'Win Informática' ? '' : 'transition-transform transition-colors duration-200 hover:scale-105 hover:font-extrabold hover:text-black dark:hover:text-white'}`}
+                          className={`text-2xl font-bold transition-transform transition-colors duration-200 hover:scale-105 hover:font-extrabold hover:text-black dark:hover:text-white ${experience.company === 'Stelimp' || experience.company === 'Undersoft' || experience.company === 'Win Informática' ? '' : 'hover:scale-105 hover:font-extrabold hover:text-black dark:hover:text-white'}`}
                         >
                           {experience.company}
                         </a>
@@ -306,6 +306,7 @@ const Home = () => {
             </div>
           </div>
         </div>
+
 
         {/* Footer */}
         <footer className="text-center text-gray-600 dark:text-gray-400">
