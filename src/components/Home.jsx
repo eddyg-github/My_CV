@@ -282,14 +282,21 @@ const Home = () => {
                     {/* Información de la experiencia */}
                     <div className="px-0">
                       <div className="flex flex-col">
-                        <a
-                          href={experience.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={`text-2xl font-bold ${experience.company === 'Stelimp' || experience.company === 'Undersoft' || experience.company === 'Win Informática' ? '' : 'transition-transform transition-colors duration-200 hover:scale-105 hover:font-extrabold hover:text-black dark:hover:text-white'}`}
-                        >
-                          {experience.company}
-                        </a>
+                        {experience.url ? (
+                          <a
+                            href={experience.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`text-2xl font-bold origin-center w-fit inline-block ${['Argentine National Senate', 'Argentine Ministry of Agriculture, Livestock, and Fisheries', 'Telefónica (now Telecom)'].includes(experience.company)
+                                ? 'transition-transform transition-colors duration-200 hover:scale-104 hover:font-extrabold hover:text-black dark:hover:text-white'
+                                : ''
+                              }`}
+                          >
+                            {experience.company}
+                          </a>
+                        ) : (
+                          <span className="text-2xl font-bold">{experience.company}</span>
+                        )}
                         <span className="text-base text-gray-500">
                           {experience.industry}
                         </span>
