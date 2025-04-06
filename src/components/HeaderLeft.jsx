@@ -298,47 +298,53 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
           </div>
         </div>
 
-        {/* Languages Section: Idiomas */}
-        <div className="flex flex-col gap-8 border-b p-8 w-full dark:border-gray-800">
-          <h1 className="text-base font-semibold md:text-2xl text-gray-900 dark:text-white">LANGUAGES</h1>
-          <div className="grid grid-cols-3 gap-12 md:text-lg">
-            {[
-              [
-                { name: 'Spanish', level: 'Native' },
-                { name: 'English', level: 'C2' },
-              ],
-              [
-                { name: 'French', level: 'B1' },
-                { name: 'Mandarin', level: 'B1' },
-              ],
-              [
-                { name: 'Portuguese', level: 'A1' },
-                { name: 'Russian', level: 'A1' },
-              ],
-            ].map((column, colIndex) => (
-              <ul key={colIndex} className="relative border-l border-gray-300 pl-6 flex flex-col gap-5">
-                {column.map((language, index) => (
-                  <li key={index} className="relative flex flex-col gap-1 group">
-                    <div className="relative flex items-center gap-2">
-                      <div className="absolute left-[-2rem] top-1/2 transform -translate-y-1/2 h-3 w-3 rounded-full bg-black dark:bg-white"></div>
-                      <img
-                        src={languageFlags[language.name]}
-                        alt={`${language.name} flag`}
-                        className="w-6 h-4 rounded-sm filter grayscale transition-all duration-300 group-hover:grayscale-0 group-hover:w-6.5 group-hover:h-4.5"
-                      />
-                      <span className="text-base font-semibold text-black dark:text-white transition-all duration-300 group-hover:font-bold group-hover:text-[1.05rem]">
-                        {language.name}
-                      </span>
-                    </div>
-                    <div className="text-black dark:text-gray-300 text-sm transition-all duration-300 group-hover:font-bold group-hover:text-[1rem]">
-                      {language.level}
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            ))}
-          </div>
-        </div>
+{/* Languages Section: Idiomas */}
+<div className="flex flex-col gap-8 border-b p-8 w-full dark:border-gray-800">
+  <h1 className="text-base font-semibold md:text-2xl text-gray-900 dark:text-white">
+    LANGUAGES
+  </h1>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:text-lg">
+    {[
+      [
+        { name: 'Spanish', level: 'Native' },
+        { name: 'English', level: 'C2' },
+      ],
+      [
+        { name: 'French', level: 'B1' },
+        { name: 'Mandarin', level: 'B1' },
+      ],
+      [
+        { name: 'Portuguese', level: 'A1' },
+        { name: 'Russian', level: 'A1' },
+      ],
+    ].map((column, colIndex) => (
+      <ul
+        key={colIndex}
+        className="relative border-l border-gray-300 pl-6 flex flex-col gap-5"
+      >
+        {column.map((language, index) => (
+          <li key={index} className="relative flex flex-col gap-1 group">
+            <div className="relative flex items-center gap-2">
+              <div className="absolute left-[-2rem] top-1/2 transform -translate-y-1/2 h-3 w-3 rounded-full bg-black dark:bg-white"></div>
+              <img
+                src={languageFlags[language.name]}
+                alt={`${language.name} flag`}
+                className="w-6 h-4 rounded-sm filter grayscale transition-all duration-300 group-hover:grayscale-0 group-hover:w-6.5 group-hover:h-4.5"
+              />
+              <span className="text-base font-semibold text-black dark:text-white transition-all duration-300 group-hover:font-bold group-hover:text-[1.05rem]">
+                {language.name}
+              </span>
+            </div>
+            <div className="text-black dark:text-gray-300 text-sm transition-all duration-300 group-hover:font-bold group-hover:text-[1rem]">
+              {language.level}
+            </div>
+          </li>
+        ))}
+      </ul>
+    ))}
+  </div>
+</div>
+
 
         {/* Complementary Certifications Section */}
         <div className="flex flex-col gap-1 border-b p-8 w-full dark:border-gray-800">
