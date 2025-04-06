@@ -80,16 +80,22 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
     { path: "ac-cert10", title: "Skillfront - CASF: Certified Associate in Scrum Fundamentals" },
   ];
 
-  const [imageSrc, setImageSrc] = useState('/public/image01-bn.webp'); // Imagen inicial
+  const education = [
+    { path: "ed-cert01", title: "Degree in DevOps Engineering" },
+    {/* { path: "ed-cert02", title: "Degree in Cloud Security & DevSecOps Engineering" },
+    { path: "ed-cert03", title: "Associate Degree in Cybersecurity" },*/}
+  ];
+
+  const [imageSrc, setImageSrc] = useState('/image01-bn.webp'); // Imagen inicial
 
   // Función para cambiar la imagen cuando el mouse entra
   const handleMouseEnter = () => {
-    setImageSrc('/public/image01-color.webp'); // Imagen cuando el mouse está encima
+    setImageSrc('/image01-color.webp'); // Imagen cuando el mouse está encima
   };
 
   // Función para volver a la imagen original cuando el mouse sale
   const handleMouseLeave = () => {
-    setImageSrc('/public/image01-bn.webp'); // Imagen cuando el mouse sale
+    setImageSrc('/image01-bn.webp'); // Imagen cuando el mouse sale
   };
 
   return (
@@ -205,15 +211,56 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
           <h1 className="text-base font-semibold md:text-2xl">EDUCATION</h1>
           <ul>
             {[
-              { degree: "Degree in DevOps Engineering", school: "EDUCACION IT / MANHATTAN UNIVERSITY | RIVERDALE, NY", year: "2023 – 2024" },
-              { degree: "Degree in Cloud Security & DevSecOps Engineering", school: "EKOPARTY HACKADEMY", year: "2024 – Ongoing" },
-              { degree: "Associate Degree in Cybersecurity", school: "UTN (Argentina) – National Technological University", year: "2023 – Ongoing" }
-            ].map((study, idx) => (
-              <li key={idx} className="relative flex flex-col gap-1 border-l p-6">
-                <div className="absolute left-[-8px] top-[35px] h-3 w-3 rounded-full bg-black dark:bg-white"></div>
-                <span className="font-semibold md:text-lg">{study.degree}</span>
-                <span className="font-light">{study.school}</span>
-                <span className="text-sm text-gray-400">{study.year}</span>
+              {
+                degree: "Degree in DevOps Engineering",
+                link: "https://www.educacionit.com/perfil/eduardo-ghidoli-935685/certificado/64510",
+                school: "EDUCACION IT / MANHATTAN UNIVERSITY | RIVERDALE, NY",
+                year: "2023 – 2024",
+                cert: true,
+              },
+              {
+                degree: "Degree in Cloud Security & DevSecOps Engineering",
+                school: "EKOPARTY HACKADEMY",
+                year: "2024 – Ongoing",
+              },
+              {
+                degree: "Associate Degree in Cybersecurity",
+                school: "UTN (Argentina) – National Technological University",
+                year: "2023 – Ongoing",
+              },
+            ].map((s, i) => (
+              <li key={i} className="relative flex flex-col gap-1 border-l p-6">
+                <div className="absolute left-[-8px] top-[35px] h-3 w-3 rounded-full bg-black dark:bg-white" />
+                {s.link ? (
+                  <div className="inline-flex items-center w-fit">
+                    <a
+                      href={s.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold md:text-lg transition-transform transition-colors duration-200 hover:scale-105 hover:font-bold hover:text-black dark:hover:text-white origin-center"
+                    >
+                      {s.degree}
+                    </a>
+                  </div>
+                ) : (
+                  <span className="font-semibold md:text-lg">{s.degree}</span>
+                )}
+                <span className="font-light">{s.school}</span>
+                <span className="text-sm text-gray-400">{s.year}</span>
+                {s.cert && (
+                  <div className="pt-4 w-40">
+                    <CertificateImage
+                      imageSrc={{
+                        full: "/certificates/ed-cert01-full.webp",
+                        bn: "/certificates/ed-cert01-sml-bn.webp",
+                        bnInverse: "/certificates/ed-cert01-sml-bn-inverse.webp",
+                        color: "/certificates/ed-cert01-sml-color.webp",
+                      }}
+                      altText="Certificado DevOps"
+                      title=""
+                    />
+                  </div>
+                )}
               </li>
             ))}
           </ul>
@@ -317,7 +364,7 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
           </div>
         </div>
 
-        {/* Complementary Certifications Section */}
+        {/* Additional Certifications Section */}
         <div className="flex flex-col gap-1 border-b p-8 w-full dark:border-gray-800">
           <h1 className="text-base font-bold md:text-xl mb-2 text-gray-900 dark:text-gray-100">ADDITIONAL CERTIFICATIONS</h1>
 

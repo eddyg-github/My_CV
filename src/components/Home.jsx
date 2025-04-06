@@ -92,35 +92,51 @@ const Home = () => {
         <div className="flex flex-col items-start justify-start gap-5 border-b p-5 dark:border-gray-700">
           {/* Sección Experience */}
           <div className="space-y-1">
-            <h1 className='text-2xl font-bold md:text-4xl'>Experience</h1>
+            <h1 className="text-2xl font-bold md:text-4xl">Experience</h1>
             <div className="flex flex-col gap-6">
-              {/* Lista de experiencias - una sola columna */}
+              {/* Lista de experiencias */}
               <ul className="flex-1">
-                <li className="relative flex flex-col gap-1 border-l p-6">
-                  {/* Viñeta */}
-                  <div className="absolute left-[-8px] top-[70px] h-3 w-3 rounded-full bg-black dark:bg-white"></div>
+                {/* Primera experiencia */}
+                <li className="relative border-l p-6">
+                  {/* Viñeta alineada con DevOps Engineer */}
+                  <div className="absolute left-[-8px] top-[96px] h-3 w-3 rounded-full bg-black dark:bg-white"></div>
+
                   {/* Información del primer rol */}
-                  <div className='px-0'>
-                    <span className='text-2xl font-bold'>Farmacias TKL</span>
+                  <div className="flex flex-col gap-1">
+                    <a
+                      href="https://www.farmaciastkl.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-2xl font-bold transition-transform transition-colors duration-200 hover:scale-105 hover:font-extrabold hover:text-black dark:hover:text-white origin-center w-fit inline-block"
+                    >
+                      Farmacias TKL
+                    </a>
+                    <span className="text-base text-gray-500">
+                      Industry: Pharmaceutical Retail & Services
+                    </span>
                     <div className="text-lg font-semibold">DevOps Engineer</div>
+                    <span className="text-sm text-gray-400">Mar 2024 - Present</span>
                   </div>
-                  <span className='text-sm text-gray-400'>Mar 2024 - Present</span>
-                  {[
-                    'Set up and maintained microservices testing environments on AWS EKS and Kubernetes, ensuring scalability and high availability.',
-                    'Managed cloud secrets and enforced software version control policies to maintain security and facilitate timely updates.',
-                    'Collaborated on infrastructure optimization in AWS for microservices testing, improving performance and reducing operational costs.'
-                  ].map((desc, i) => (
-                    <p key={i} className='text-sm text-gray-600 dark:text-gray-400'>{desc}</p>
-                  ))}
+
+                  {/* Descripción de tareas */}
+                  <div className="mt-2 flex flex-col gap-1">
+                    {[
+                      'Set up and maintained microservices testing environments on AWS EKS and Kubernetes, ensuring scalability and high availability.',
+                      'Managed cloud secrets and enforced software version control policies to maintain security and facilitate timely updates.',
+                      'Collaborated on infrastructure optimization in AWS for microservices testing, improving performance and reducing operational costs.'
+                    ].map((desc, i) => (
+                      <p key={i} className="text-sm text-gray-600 dark:text-gray-400">{desc}</p>
+                    ))}
+                  </div>
                 </li>
+
+                {/* Segunda experiencia */}
                 <li className="relative flex flex-col gap-1 border-l p-6">
-                  {/* Viñeta */}
-                  <div className="absolute left-[-8px] top-[35px] h-3 w-3 rounded-full bg-black dark:bg-white"></div>
-                  {/* Información del segundo rol */}
-                  <div className='px-0'>
+                  <div className="absolute left-[-8px] top-[35px] h-3 w-3 rounded-full bg-black dark:bg-white" />
+                  <div className="px-0">
                     <div className="text-lg font-semibold">IT Systems Infrastructure Analyst</div>
                   </div>
-                  <span className='text-sm text-gray-400'>Sep 2015 - Mar 2024</span>
+                  <span className="text-sm text-gray-400">Sep 2015 - Mar 2024</span>
                   {[
                     'Administered and maintained physical and virtual servers across Unix, Linux, and Windows environments to ensure high availability.',
                     'Configured and managed Active Directory for user authentication and security, optimizing access control.',
@@ -128,7 +144,7 @@ const Home = () => {
                     'Conducted performance assessments and implemented improvements to increase system reliability and efficiency.',
                     'Implemented automated backup solutions to ensure data security and rapid recovery in case of failure.'
                   ].map((desc, i) => (
-                    <p key={i} className='text-sm text-gray-600 dark:text-gray-400'>{desc}</p>
+                    <p key={i} className="text-sm text-gray-600 dark:text-gray-400">{desc}</p>
                   ))}
                 </li>
               </ul>
@@ -192,6 +208,8 @@ const Home = () => {
                     company: 'Argentine National Senate',
                     role: 'IT Operations and Infrastructure | SysAdmin',
                     period: '2014 - 2015',
+                    industry: 'Industry: National Government – Legislative Power',
+                    url: 'https://www.senado.gob.ar/',
                     description: [
                       'Spearheaded IT Operations and Infrastructure initiatives, optimizing system performance and ensuring efficient daily operations by implementing IT initiatives as directed.',
                       'Managed servers, networks, and configurations with an emphasis on operational efficiency.',
@@ -202,6 +220,8 @@ const Home = () => {
                     company: 'Argentine Ministry of Agriculture, Livestock, and Fisheries',
                     role: 'IT Operations and Infrastructure | IT Support',
                     period: '2011 - 2014',
+                    industry: 'Industry: Government – Agricultural Policy and Development',
+                    url: 'https://www.argentina.gob.ar/economia/agricultura',
                     description: [
                       'Led IT Operations and Infrastructure activities, supporting IT operations to ensure system stability and scalability.',
                       'Provided reliable IT support by addressing user issues and enhancing the IT environment.',
@@ -212,6 +232,8 @@ const Home = () => {
                     company: 'Telefónica (now Telecom)',
                     role: 'IT Support & Operations',
                     period: '2008 - 2011',
+                    industry: 'Industry: Telecommunications – Digital Services',
+                    url: 'https://www.telefonica.com.ar/',
                     description: [
                       'Delivered effective IT support and help desk services to ensure seamless day-to-day operations.',
                       'Played a vital role in troubleshooting and resolving user-reported issues promptly.',
@@ -222,6 +244,7 @@ const Home = () => {
                     company: 'Stelimp',
                     role: 'IT Support | Help Desk',
                     period: '2004 - 2008',
+                    industry: 'Industry: Building Maintenance Solutions',
                     description: [
                       'Provided dedicated IT support, addressing user concerns, and maintaining a productive work environment.',
                       'Played a key role in troubleshooting hardware and software issues, ensuring minimal downtime.',
@@ -234,6 +257,7 @@ const Home = () => {
                     company: 'Undersoft',
                     role: 'IT Support | Help Desk',
                     period: '2002 - 2004',
+                    industry: 'Industry: IT Support and Systems Integration',
                     description: [
                       'Provided responsive IT support to address user concerns, and maintain a productive work environment.',
                       'Played a key role in troubleshooting hardware and software issues, ensuring minimal downtime.',
@@ -244,6 +268,7 @@ const Home = () => {
                     company: 'Win Informática',
                     role: 'IT Support | Help Desk',
                     period: '2000 - 2002',
+                    industry: 'Industry: IT Hardware and Support Services',
                     description: [
                       'Offered comprehensive IT support, addressing user queries, and technical issues effectively.',
                       'Contributed to the development and maintenance of IT infrastructure.',
@@ -252,11 +277,23 @@ const Home = () => {
                   }
                 ].map((experience, index) => (
                   <li key={index} className="relative flex flex-col gap-1 border-l p-6">
-                    {/* Viñeta con top estático */}
-                    <div className="absolute left-[-6px] top-[65px] h-3 w-3 rounded-full bg-black dark:bg-white"></div>
+                    {/* Viñeta alineada con el título del rol */}
+                    <div className="absolute left-[-6px] top-[90px] h-3 w-3 rounded-full bg-black dark:bg-white"></div>
                     {/* Información de la experiencia */}
                     <div className="px-0">
-                      <span className="text-2xl font-bold">{experience.company}</span>
+                      <div className="flex flex-col">
+                        <a
+                          href={experience.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`text-2xl font-bold ${experience.company === 'Stelimp' || experience.company === 'Undersoft' || experience.company === 'Win Informática' ? '' : 'transition-transform transition-colors duration-200 hover:scale-105 hover:font-extrabold hover:text-black dark:hover:text-white'}`}
+                        >
+                          {experience.company}
+                        </a>
+                        <span className="text-base text-gray-500">
+                          {experience.industry}
+                        </span>
+                      </div>
                       <div className="text-lg font-semibold">{experience.role}</div>
                     </div>
                     <span className="text-sm text-gray-400">{experience.period}</span>
