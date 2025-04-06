@@ -195,117 +195,117 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Línea separadora entre About Me y Employment History */}
-        <div className="flex flex-col items-start justify-start gap-5 border-b p-5 dark:border-gray-700">
-          {/* Sección Employment History */}
-          <div className="space-y-1">
-            <h1 className="text-2xl font-bold md:text-4xl">Employment History</h1>
-            <div className="flex flex-col gap-6">
-              {/* Lista de experiencias - una sola columna */}
-              <ul className="flex-1">
-                {[
-                  {
-                    company: 'Argentine National Senate',
-                    role: 'IT Operations and Infrastructure | SysAdmin',
-                    period: '2014 - 2015',
-                    industry: 'Industry: National Government – Legislative Power',
-                    url: 'https://www.senado.gob.ar/',
-                    description: [
-                      'Spearheaded IT Operations and Infrastructure initiatives, optimizing system performance and ensuring efficient daily operations by implementing IT initiatives as directed.',
-                      'Managed servers, networks, and configurations with an emphasis on operational efficiency.',
-                      'Implemented proactive security measures to maintain data integrity and compliance with cybersecurity standards.'
-                    ]
-                  },
-                  {
-                    company: 'Argentine Ministry of Agriculture, Livestock, and Fisheries',
-                    role: 'IT Operations and Infrastructure | IT Support',
-                    period: '2011 - 2014',
-                    industry: 'Industry: Government – Agricultural Policy and Development',
-                    url: 'https://www.argentina.gob.ar/economia/agricultura',
-                    description: [
-                      'Led IT Operations and Infrastructure activities, supporting IT operations to ensure system stability and scalability.',
-                      'Provided reliable IT support by addressing user issues and enhancing the IT environment.',
-                      'Assisted in the improvement of IT infrastructure and the implementation of security protocols to protect sensitive information.'
-                    ]
-                  },
-                  {
-                    company: 'Telefónica (now Telecom)',
-                    role: 'IT Support & Operations',
-                    period: '2008 - 2011',
-                    industry: 'Industry: Telecommunications – Digital Services',
-                    url: 'https://www.telefonica.com.ar/',
-                    description: [
-                      'Delivered effective IT support and help desk services to ensure seamless day-to-day operations.',
-                      'Played a vital role in troubleshooting and resolving user-reported issues promptly.',
-                      'Collaborated with cross-functional teams to improve IT processes and user satisfaction.'
-                    ]
-                  },
-                  {
-                    company: 'Stelimp',
-                    role: 'IT Support | Help Desk',
-                    period: '2004 - 2008',
-                    industry: 'Industry: Building Maintenance Solutions',
-                    description: [
-                      'Provided dedicated IT support, addressing user concerns, and maintaining a productive work environment.',
-                      'Played a key role in troubleshooting hardware and software issues, ensuring minimal downtime.',
-                      'Contributed significativamente to the implementation of effective IT policies and procedures, enhancing overall operational efficiency.',
-                      'Collaborated with the IT team to optimize system performance and resolve technical challenges promptly.',
-                      'Extended IT support services to operations in Uruguay, ensuring seamless IT operations across multiple locations.'
-                    ]
-                  },
-                  {
-                    company: 'Undersoft',
-                    role: 'IT Support | Help Desk',
-                    period: '2002 - 2004',
-                    industry: 'Industry: IT Support and Systems Integration',
-                    description: [
-                      'Provided responsive IT support to address user concerns, and maintain a productive work environment.',
-                      'Played a key role in troubleshooting hardware and software issues, ensuring minimal downtime.',
-                      'Contributed to the implementation of IT policies and procedures.'
-                    ]
-                  },
-                  {
-                    company: 'Win Informática',
-                    role: 'IT Support | Help Desk',
-                    period: '2000 - 2002',
-                    industry: 'Industry: IT Hardware and Support Services',
-                    description: [
-                      'Offered comprehensive IT support, addressing user queries, and technical issues effectively.',
-                      'Contributed to the development and maintenance of IT infrastructure.',
-                      'Assisted in the deployment and maintenance of software and hardware systems.'
-                    ]
-                  }
-                ].map((experience, index) => (
-                  <li key={index} className="relative flex flex-col gap-1 border-l p-6">
-                    {/* Viñeta alineada con el título del rol */}
-                    <div className="absolute left-[-6px] top-[90px] h-3 w-3 rounded-full bg-black dark:bg-white"></div>
-                    {/* Información de la experiencia */}
-                    <div className="px-0">
-                      <div className="flex flex-col">
-                        <a
-                          href={experience.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={`text-2xl font-bold transition-transform transition-colors duration-200 hover:scale-105 hover:font-extrabold hover:text-black dark:hover:text-white ${experience.company === 'Stelimp' || experience.company === 'Undersoft' || experience.company === 'Win Informática' ? '' : 'hover:scale-105 hover:font-extrabold hover:text-black dark:hover:text-white'}`}
-                        >
-                          {experience.company}
-                        </a>
-                        <span className="text-base text-gray-500">
-                          {experience.industry}
-                        </span>
-                      </div>
-                      <div className="text-lg font-semibold">{experience.role}</div>
-                    </div>
-                    <span className="text-sm text-gray-400">{experience.period}</span>
-                    {experience.description.map((desc, i) => (
-                      <p key={i} className="text-sm text-gray-600 dark:text-gray-400">{desc}</p>
-                    ))}
-                  </li>
-                ))}
-              </ul>
+{/* Línea separadora entre About Me y Employment History */}
+<div className="flex flex-col items-start justify-start gap-5 border-b p-5 dark:border-gray-700">
+  {/* Sección Employment History */}
+  <div className="space-y-1">
+    <h1 className="text-2xl font-bold md:text-4xl">Employment History</h1>
+    <div className="flex flex-col gap-6">
+      {/* Lista de experiencias - una sola columna */}
+      <ul className="flex-1">
+        {[
+          {
+            company: 'Argentine National Senate',
+            role: 'IT Operations and Infrastructure | SysAdmin',
+            period: '2014 - 2015',
+            industry: 'Industry: National Government – Legislative Power',
+            url: 'https://www.senado.gob.ar/',
+            description: [
+              'Spearheaded IT Operations and Infrastructure initiatives, optimizing system performance and ensuring efficient daily operations by implementing IT initiatives as directed.',
+              'Managed servers, networks, and configurations with an emphasis on operational efficiency.',
+              'Implemented proactive security measures to maintain data integrity and compliance with cybersecurity standards.'
+            ]
+          },
+          {
+            company: 'Argentine Ministry of Agriculture, Livestock, and Fisheries',
+            role: 'IT Operations and Infrastructure | IT Support',
+            period: '2011 - 2014',
+            industry: 'Industry: Government – Agricultural Policy and Development',
+            url: 'https://www.argentina.gob.ar/economia/agricultura',
+            description: [
+              'Led IT Operations and Infrastructure activities, supporting IT operations to ensure system stability and scalability.',
+              'Provided reliable IT support by addressing user issues and enhancing the IT environment.',
+              'Assisted in the improvement of IT infrastructure and the implementation of security protocols to protect sensitive information.'
+            ]
+          },
+          {
+            company: 'Telefónica (now Telecom)',
+            role: 'IT Support & Operations',
+            period: '2008 - 2011',
+            industry: 'Industry: Telecommunications – Digital Services',
+            url: 'https://www.telefonica.com.ar/',
+            description: [
+              'Delivered effective IT support and help desk services to ensure seamless day-to-day operations.',
+              'Played a vital role in troubleshooting and resolving user-reported issues promptly.',
+              'Collaborated with cross-functional teams to improve IT processes and user satisfaction.'
+            ]
+          },
+          {
+            company: 'Stelimp',
+            role: 'IT Support | Help Desk',
+            period: '2004 - 2008',
+            industry: 'Industry: Building Maintenance Solutions',
+            description: [
+              'Provided dedicated IT support, addressing user concerns, and maintaining a productive work environment.',
+              'Played a key role in troubleshooting hardware and software issues, ensuring minimal downtime.',
+              'Contributed significativamente a la implementación de políticas y procedimientos de TI efectivos, mejorando la eficiencia operativa en general.',
+              'Colaboró con el equipo de TI para optimizar el rendimiento del sistema y resolver problemas técnicos rápidamente.',
+              'Extendió los servicios de soporte de TI a las operaciones en Uruguay, asegurando la continuidad de las operaciones en múltiples ubicaciones.'
+            ]
+          },
+          {
+            company: 'Undersoft',
+            role: 'IT Support | Help Desk',
+            period: '2002 - 2004',
+            industry: 'Industry: IT Support and Systems Integration',
+            description: [
+              'Provided responsive IT support to address user concerns, and maintain a productive work environment.',
+              'Played a key role in troubleshooting hardware and software issues, ensuring minimal downtime.',
+              'Contributed to the implementation of IT policies and procedures.'
+            ]
+          },
+          {
+            company: 'Win Informática',
+            role: 'IT Support | Help Desk',
+            period: '2000 - 2002',
+            industry: 'Industry: IT Hardware and Support Services',
+            description: [
+              'Offered comprehensive IT support, addressing user queries, and technical issues effectively.',
+              'Contributed to the development and maintenance of IT infrastructure.',
+              'Assisted in the deployment and maintenance of software and hardware systems.'
+            ]
+          }
+        ].map((experience, index) => (
+          <li key={index} className="relative flex flex-col gap-1 border-l p-6">
+            {/* Viñeta alineada con el título del rol */}
+            <div className="absolute left-[-6px] top-[90px] h-3 w-3 rounded-full bg-black dark:bg-white"></div>
+            {/* Información de la experiencia */}
+            <div className="px-0">
+              <div className="flex flex-col">
+                <a
+                  href={experience.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`text-2xl font-bold transition-transform transition-colors duration-200 hover:scale-105 hover:font-extrabold hover:text-black dark:hover:text-white ${experience.company === 'Stelimp' || experience.company === 'Undersoft' || experience.company === 'Win Informática' ? '' : 'hover:scale-105 hover:font-extrabold hover:text-black dark:hover:text-white'}`}
+                >
+                  {experience.company}
+                </a>
+                <span className="text-base text-gray-500">
+                  {experience.industry}
+                </span>
+              </div>
+              <div className="text-lg font-semibold">{experience.role}</div>
             </div>
-          </div>
-        </div>
+            <span className="text-sm text-gray-400">{experience.period}</span>
+            {experience.description.map((desc, i) => (
+              <p key={i} className="text-sm text-gray-600 dark:text-gray-400">{desc}</p>
+            ))}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</div>
 
 
         {/* Footer */}
