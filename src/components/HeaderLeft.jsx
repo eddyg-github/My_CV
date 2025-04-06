@@ -345,7 +345,6 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
           </div>
         </div>
 
-
         {/* Complementary Certifications Section */}
         <div className="flex flex-col gap-1 border-b p-8 w-full dark:border-gray-800">
           <h1 className="text-base font-bold md:text-xl mb-2 text-gray-900 dark:text-gray-100">
@@ -374,12 +373,13 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
           </div>
         </div>
 
-
         {/* Additional Certifications Section */}
         <div className="flex flex-col gap-1 border-b p-8 w-full dark:border-gray-800">
-          <h1 className="text-base font-bold md:text-xl mb-2 text-gray-900 dark:text-gray-100">ADDITIONAL CERTIFICATIONS</h1>
+          <h1 className="text-base font-bold md:text-xl mb-2 text-gray-900 dark:text-gray-100">
+            ADDITIONAL CERTIFICATIONS
+          </h1>
 
-          <div className="grid grid-cols-12 sm:grid-cols-3 md:grid-cols-4 gap-3 p-1">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 p-1">
             {additionalCertifications.map(({ path, title }) => (
               <div key={path} className="flex flex-col items-center">
                 <CertificateImage
@@ -396,6 +396,7 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
             ))}
           </div>
         </div>
+
       </div>
     </div>
   );
