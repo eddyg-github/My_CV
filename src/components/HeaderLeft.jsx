@@ -116,7 +116,7 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
               <span className="font-semibold">Eduardo Ghidoli</span>
             </h1>
             <h3 className="text-xl font-light">
-              <span className="font-bold">SRE</span> | <span className="font-bold">DevOps</span> Engineer
+              <span className="font-bold">SRE</span> | <span className="font-bold">DevOps</span>  | <span className="font-bold">DevSecOps</span>  | <span className="font-bold">Cloud Security</span> Engineer
             </h3>
           </div>
           <button className="absolute right-10 top-10" onClick={toggleDarkMode}>
