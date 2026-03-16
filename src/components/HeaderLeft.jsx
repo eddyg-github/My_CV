@@ -43,12 +43,12 @@ const CertificateImage = ({ imageSrc, altText, title }) => {
 const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
 
   const languageFlags = {
-    Spanish: "https://flagcdn.com/w40/es.png", // España
-    English: "https://flagcdn.com/w40/gb.png", // Reino Unido
-    French: "https://flagcdn.com/w40/fr.png", // Francia
-    Mandarin: "https://flagcdn.com/w40/cn.png", // China
-    Portuguese: "https://flagcdn.com/w40/pt.png", // Portugal
-    Russian: "https://flagcdn.com/w40/ru.png", // Rusia
+    Spanish: "https://flagcdn.com/w40/es.png",
+    English: "https://flagcdn.com/w40/gb.png",
+    French: "https://flagcdn.com/w40/fr.png",
+    Mandarin: "https://flagcdn.com/w40/cn.png",
+    Portuguese: "https://flagcdn.com/w40/pt.png",
+    Russian: "https://flagcdn.com/w40/ru.png",
   };
 
   const certificates = [
@@ -80,22 +80,14 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
     { path: "ac-cert10", title: "Skillfront - CASF: Certified Associate in Scrum Fundamentals" },
   ];
 
-  const education = [
-    { path: "ed-cert01", title: "Degree in DevOps Engineering" },
-    {/* { path: "ed-cert02", title: "Degree in Cloud Security & DevSecOps Engineering" },
-    { path: "ed-cert03", title: "Associate Degree in Cybersecurity" },*/}
-  ];
+  const [imageSrc, setImageSrc] = useState('/image01-bn.webp');
 
-  const [imageSrc, setImageSrc] = useState('/image01-bn.webp'); // Imagen inicial
-
-  // Función para cambiar la imagen cuando el mouse entra
   const handleMouseEnter = () => {
-    setImageSrc('/image01-color.webp'); // Imagen cuando el mouse está encima
+    setImageSrc('/image01-color.webp');
   };
 
-  // Función para volver a la imagen original cuando el mouse sale
   const handleMouseLeave = () => {
-    setImageSrc('/image01-bn.webp'); // Imagen cuando el mouse sale
+    setImageSrc('/image01-bn.webp');
   };
 
   return (
@@ -108,15 +100,17 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
             src={imageSrc}
             alt="Eduardo Ghidoli"
             className="w-44 rounded-full"
-            onMouseEnter={handleMouseEnter} // Cambiar imagen al pasar el mouse
-            onMouseLeave={handleMouseLeave} // Volver a la imagen original al quitar el mouse
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
           />
           <div className="text-center space-y-1">
             <h1 className="text-4xl font-light">
               <span className="font-semibold">Eduardo Ghidoli</span>
             </h1>
-            <h3 className="text-xl font-light">
-              <span className="font-bold">SRE</span> | <span className="font-bold">DevOps</span> Engineer
+            <h3 className="text-xl font-semibold">
+              SRE | IT Operations<br/>
+              DevOps | DevSecOps<br/>
+              Cloud Security Engineer
             </h3>
           </div>
           <button className="absolute right-10 top-10" onClick={toggleDarkMode}>
@@ -132,7 +126,7 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
           </p>
         </div>
 
-        {/* Contact Info Section: Información de contacto */}
+        {/* Contact Info Section */}
         <div className="flex flex-col gap-8 border-b p-8 w-full dark:border-gray-800">
           <h1 className="text-base font-semibold md:text-2xl">CONTACT</h1>
           <ul className="space-y-3">
@@ -142,7 +136,6 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
             ].map((contact, idx) => (
               <li key={idx} className="w-auto">
                 {idx === 0 ? (
-                  // Efecto aplicado al icono de ubicación con bandera y estrellas
                   <div className="group inline-flex items-center gap-2 p-1 rounded-md transition-transform duration-200 transform hover:scale-105 cursor-pointer">
                     <div className="border-2 p-1 rounded-full" style={{ borderColor: "#D1D5DB" }}>
                       {contact.icon}
@@ -150,18 +143,14 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
                     <span className="transition-colors duration-200 group-hover:text-black dark:group-hover:text-white group-hover:font-bold">
                       {contact.text}
                     </span>
-                    {/* Bandera de Argentina y estrellas aparecen solo al hacer hover */}
                     <span className="relative transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-                      {/* Bandera */}
                       <span className="text-xl">{contact.flag}</span>
-                      {/* Estrellas doradas más juntas y más altas */}
                       <span className="absolute top-[-8px] left-[-5px] text-yellow-500 text-xs group-hover:opacity-100 opacity-0 transition-opacity duration-300">★</span>
                       <span className="absolute top-[-12px] left-1/2 transform -translate-x-1/2 text-yellow-500 text-xs group-hover:opacity-100 opacity-0 transition-opacity duration-300">★</span>
                       <span className="absolute top-[-8px] right-[-5px] text-yellow-500 text-xs group-hover:opacity-100 opacity-0 transition-opacity duration-300">★</span>
                     </span>
                   </div>
                 ) : (
-                  // Efecto aplicado al botón de email
                   <div className="group inline-flex items-center gap-2 p-1 rounded-md transition-transform duration-200 transform hover:scale-105 cursor-pointer">
                     <div className="border-2 p-1 rounded-full" style={{ borderColor: "#D1D5DB" }}>
                       {contact.icon}
@@ -176,7 +165,7 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
           </ul>
         </div>
 
-        {/* Social Media Section: Redes sociales */}
+        {/* Social Media Section */}
         <div className="flex flex-col gap-8 border-b p-8 w-full dark:border-gray-800">
           <h1 className="text-base font-semibold md:text-2xl">SOCIAL</h1>
           <ul className="space-y-3">
@@ -206,7 +195,7 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
           </ul>
         </div>
 
-        {/* Education Section: Educación */}
+        {/* Education Section */}
         <div className="flex flex-col items-start justify-start gap-5 border-b p-5 dark:border-gray-700">
           <h1 className="text-base font-semibold md:text-2xl">EDUCATION</h1>
           <ul>
@@ -217,11 +206,14 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
                 school: "EDUCACION IT / MANHATTAN UNIVERSITY | RIVERDALE, NY",
                 year: "2023 – 2024",
                 cert: true,
+                certPath: "ed-cert01",
               },
               {
                 degree: "Degree in Cloud Security & DevSecOps Engineering",
                 school: "EKOPARTY HACKADEMY",
                 year: "2024 – Ongoing",
+                cert: true,
+                certPath: "ed-cert02",
               },
               {
                 degree: "Associate Degree in Cybersecurity",
@@ -251,12 +243,12 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
                   <div className="pt-4 w-40">
                     <CertificateImage
                       imageSrc={{
-                        full: "/certificates/ed-cert01-full.webp",
-                        bn: "/certificates/ed-cert01-sml-bn.webp",
-                        bnInverse: "/certificates/ed-cert01-sml-bn-inverse.webp",
-                        color: "/certificates/ed-cert01-sml-color.webp",
+                        full: `/certificates/${s.certPath}-full.webp`,
+                        bn: `/certificates/${s.certPath}-sml-bn.webp`,
+                        bnInverse: `/certificates/${s.certPath}-sml-bn-inverse.webp`,
+                        color: `/certificates/${s.certPath}-sml-color.webp`,
                       }}
-                      altText="Certificado DevOps"
+                      altText={`Certificado ${s.degree}`}
                       title=""
                     />
                   </div>
@@ -298,7 +290,7 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
           </div>
         </div>
 
-        {/* Languages Section: Idiomas */}
+        {/* Languages Section */}
         <div className="flex flex-col gap-8 border-b p-8 w-full dark:border-gray-800">
           <h1 className="text-base font-semibold md:text-2xl text-gray-900 dark:text-white">
             LANGUAGES
@@ -310,8 +302,8 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
                 { name: 'English', level: 'C2' },
               ],
               [
+                { name: 'Mandarin', level: 'B2' },
                 { name: 'French', level: 'B1' },
-                { name: 'Mandarin', level: 'B1' },
               ],
               [
                 { name: 'Portuguese', level: 'A1' },
@@ -378,7 +370,6 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
           <h1 className="text-base font-bold md:text-xl mb-2 text-gray-900 dark:text-gray-100">
             ADDITIONAL CERTIFICATIONS
           </h1>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 p-1">
             {additionalCertifications.map(({ path, title }) => (
               <div key={path} className="flex flex-col items-center">
