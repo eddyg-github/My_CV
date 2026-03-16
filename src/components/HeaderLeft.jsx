@@ -211,7 +211,7 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
               {
                 degree: "Degree in Cloud Security & DevSecOps Engineering",
                 school: "EKOPARTY HACKADEMY",
-                year: "2024 – Ongoing",
+                year: "2024 – 2025",
                 cert: true,
                 certPath: "ed-cert02",
               },
