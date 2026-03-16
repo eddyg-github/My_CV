@@ -321,7 +321,7 @@ const Home = () => {
           <p className="text-xs text-gray-400 dark:text-gray-600">
             Built with React & Tailwind CSS —{" "}
             <a
-              href="https://github.com/eddyg-github"
+              href="https://github.com/eddyg-github/My_CV"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-black dark:hover:text-white transition-colors duration-200"
