@@ -108,8 +108,8 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
               <span className="font-semibold">Eduardo Ghidoli</span>
             </h1>
             <h3 className="text-xl font-semibold">
-              SRE | IT Operations<br/>
-              DevOps | DevSecOps<br/>
+              SRE | IT Operations<br />
+              DevOps | DevSecOps<br />
               Cloud Security Engineer
             </h3>
           </div>
@@ -275,12 +275,26 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
               line.map((skill, skillIdx) => (
                 <span
                   key={`${idx}-${skillIdx}`}
-                  className="border-2 text-gray-800 dark:text-gray-100 p-2 rounded-lg text-xs font-bold transition-transform transform hover:scale-110 hover:shadow-2xl dark:hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50 hover:font-extrabold"
+                  className="border-2 text-gray-800 dark:text-gray-100 p-2 rounded-lg text-xs font-bold focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50"
                   style={{
                     borderColor: "#D1D5DB",
                     marginRight: "4px",
                     marginBottom: "4px",
-                    transition: "transform 0.3s ease, box-shadow 0.3s ease, font-weight 0.3s ease",
+                    display: "inline-block",
+                    transition: "transform 0.2s ease, box-shadow 0.2s ease",
+                    willChange: "transform",
+                    transformOrigin: "center",
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.transform = "scale(1.1)";
+                    e.currentTarget.style.zIndex = "10";
+                    e.currentTarget.style.position = "relative";
+                    e.currentTarget.style.boxShadow = "0 10px 25px rgba(0,0,0,0.2)";
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.transform = "scale(1)";
+                    e.currentTarget.style.zIndex = "0";
+                    e.currentTarget.style.boxShadow = "none";
                   }}
                 >
                   {skill}
