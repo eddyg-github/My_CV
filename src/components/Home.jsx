@@ -316,7 +316,19 @@ const Home = () => {
 
         {/* Footer */}
         <footer className="text-center text-gray-600 dark:text-gray-400">
-          <p>&copy; 2025 All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Eduardo Ghidoli — All rights reserved.</p>
+          
+          <p className="text-xs text-gray-400 dark:text-gray-600">
+            Built with React & Tailwind CSS —{" "}
+            <a
+              href="https://github.com/eddyg-github"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-black dark:hover:text-white transition-colors duration-200"
+            >
+              View source on GitHub
+            </a>
+          </p>
         </footer>
         <div className="border-t p-5 dark:border-gray-700">
         </div>
